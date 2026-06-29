@@ -1,18 +1,20 @@
 <?php
-function dump(mixed $data): void
-{
-    echo '<pre>';
-    var_dump($data);
-    echo '</pre>';
-}
+
+include_once "../tp/Entity/Brands-ex.php";
+include_once "../tp/Entity/Categories.php";
+
 
 class Listings
 {
     private int $id;
 
+    private Sellers $seller;
+
+    private Models $model;
+
     private string $title;
 
-    private string $description;
+    private ?string $description;
 
     private string $produce_year;
 
@@ -32,6 +34,30 @@ class Listings
         $this->id = $id;
     }
 
+
+    public function getSeller(): Sellers
+    {
+        return $this->seller;
+    }
+
+    public function setSeller(Sellers $seller): void
+    {
+        $this->seller = $seller;
+    }
+
+
+    public function getModel(): Models
+    {
+        return $this->model;
+    }
+
+    public function setModel(Models $model): void
+    {
+        $this->model = $model;
+    }
+
+
+
     public function getTitle(): string
     {
         return $this->title;
@@ -42,12 +68,12 @@ class Listings
         $this->title = $title;
     }
 
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    public function setDescription(string $description): void
+    public function setDescription(?string $description): void
     {
         $this->description = $description;
     }
@@ -95,13 +121,3 @@ class Listings
 
 }
 
-$listing = new Listings();
-$listing->setId(1);
-$listing->setTitle();
-$listing->getDescription();
-$listing->setMileage();
-$listing->setPrice();
-$listing->setProduceYear();
-$listing->setPublishAt();
-
-dump($listing);

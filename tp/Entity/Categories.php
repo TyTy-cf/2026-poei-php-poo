@@ -1,18 +1,12 @@
 <?php
 
-function dump(mixed $data): void
-{
-    echo '<pre>';
-    var_dump($data);
-    echo '</pre>';
-}
 class Categories
 {
     private ?int $id;
 
     private string $label;
 
-    private string $description;
+    private ?string $description;
 
 
 
@@ -41,17 +35,9 @@ class Categories
         return $this->description;
     }
 
-    public function setDescription(string $description): void
+    public function setDescription(?string $description): void
     {
         $this->description = $description;
     }
 
 }
-
-$category = new Categories();
-$category->setId(3);
-$category->setLabel("Berline");
-$category->setDescription("Et delectus ut nisi minima eum error. Consequuntur...");
-
-
-dump($category);

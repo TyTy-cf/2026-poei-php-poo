@@ -1,12 +1,5 @@
 <?php
 
-function dump(mixed $data): void
-{
-    echo '<pre>';
-    var_dump($data);
-    echo '</pre>';
-}
-
 class Sellers
 {
     private int $id;
@@ -84,12 +77,4 @@ class Sellers
 
 }
 
-$seller = new Sellers();
-$seller->setId(1);
-$seller->setFirstName("Laverne");
-$seller->setLastName("Gerhold");
-$seller->setEmail("eos@feest.com");
-$seller->setLocation("");
-$seller->setPhoneNumber("913.393.0341");
 
-dump($seller);

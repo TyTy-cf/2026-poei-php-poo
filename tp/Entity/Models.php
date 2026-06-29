@@ -1,15 +1,16 @@
 <?php
 
-function dump(mixed $data): void
-{
-    echo '<pre>';
-    var_dump($data);
-    echo '</pre>';
-}
+include_once "../tp/Entity/Brands-ex.php";
+include_once "../tp/Entity/Categories.php";
+
 class Models
 {
 
     private ?int $id;
+
+    private Brands $brand;
+
+    private Categories $category;
 
     private string $label;
 
@@ -25,6 +26,27 @@ class Models
     {
         $this->id = $id;
     }
+
+    public function getBrand() : Brands
+    {
+        return $this->brand;
+    }
+
+    public function setBrand(Brands $brand): void
+    {
+        $this->brand = $brand;
+    }
+
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    public function setCategory($category): void
+    {
+        $this->category = $category;
+    }
+
 
     public function getLabel(): string
     {
@@ -48,10 +70,4 @@ class Models
 
 }
 
-$model = new Models();
-$model->setId(1);
-$model->setLabel("Berline");
-$model->setDescription("Odit possimus ducimus nam non voluptatem. Et beata...");
 
-
-dump($model);
