@@ -45,7 +45,7 @@ $listing->setPublishAt(date("Y-m-d H:i:s"));
 dump($swift);
 dump($citadine);
 dump($model);
-dump($seller);
+dump($brice);
 dump($listing);
 
 ?>
