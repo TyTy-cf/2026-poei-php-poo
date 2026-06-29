@@ -2,7 +2,7 @@
 
 namespace Entity;
 
-class sellers
+class Sellers
 {
     private int $id;
     private string $first_name;

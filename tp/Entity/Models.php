@@ -1,6 +1,10 @@
 <?php
-include "\Entity\Categories.php";
-include "\Entity\Brands.php";
+
+namespace Entity;
+
+
+
+
 class Models
 {
     private int $id;

@@ -1,9 +1,9 @@
 <?php
 
-include "/Entity/Sellers.php";
-include "/Entity/Models.php";
+namespace Entity;
 
-class Listing
+
+class Listings
 {
     private int $id;
     private Sellers $seller;
