@@ -10,7 +10,7 @@ class Listings
     private string $description;
     private string $produce_year;
     private int $mileage;
-    private int $price;
+    private float $price;
     private Datetime $publish_at;
 
     public function getId(): ?int
@@ -66,10 +66,10 @@ class Listings
     public function setMileage(int $mileage): void{
         $this->mileage = $mileage;
     }
-    public function getPrice(): int{
+    public function getPrice(): float{
         return $this->price;
     }
-    public function setPrice(int $price): void{
+    public function setPrice(float $price): void{
         $this->price = $price;
     }
     public function getPublish_at(): Datetime{

@@ -28,7 +28,7 @@ $listing->setTitle("Ford");
 $listing->setDescription("Cette superbe Ford fait vroum vite et sans trop de bruit");
 $listing->setProduce_year(2017);
 $listing->setMileage(111073);
-$listing->setPrice(9999);
+$listing->setPrice(9999.99);
 $listing->setPublish_at(new Datetime());
 dump($listing);
 
