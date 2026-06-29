@@ -23,4 +23,4 @@ php:
 	@docker compose exec php bash
 
 php-server:
-	@docker compose exec php php -S localhost:8000
+	@docker compose exec php php -S 0.0.0.0:8000 -t /var/www/html
