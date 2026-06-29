@@ -35,6 +35,16 @@ class Brands
         $this->label = $label;
     }
 
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
     // Exemple de méthodes utilitaires dans les classes
 
     public function getAge(): int
