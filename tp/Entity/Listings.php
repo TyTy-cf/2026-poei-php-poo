@@ -1,6 +1,4 @@
 <?php
-include_once "./Entity/Sellers.php";
-include_once "./Entity/Models.php";
 class Listings
 {
     private int $id;

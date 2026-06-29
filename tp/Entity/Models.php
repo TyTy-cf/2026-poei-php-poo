@@ -1,6 +1,4 @@
 <?php
-include_once "./Entity/Brands.php";
-include_once "./Entity/Categories.php";
 class Models
 {
     private int $id;
