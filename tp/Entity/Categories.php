@@ -5,9 +5,7 @@ class Categories
 {
 
   private int $id;
-
   private string $label;
-
   private string $description;
 
 
@@ -21,6 +19,7 @@ class Categories
     $this->id = $id;
   }
 
+
   public function getLabel(): string
   {
     return $this->label;
@@ -30,6 +29,7 @@ class Categories
   {
     $this->label = $label;
   }
+
 
   public function getDescription(): ?string
   {

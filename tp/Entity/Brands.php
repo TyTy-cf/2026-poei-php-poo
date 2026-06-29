@@ -19,6 +19,7 @@ class Brands
     $this->id = $id;
   }
 
+
   public function getLabel(): string
   {
     return $this->label;
@@ -28,6 +29,7 @@ class Brands
   {
     $this->label = $label;
   }
+
 
   public function getDescription(): ?string
   {
