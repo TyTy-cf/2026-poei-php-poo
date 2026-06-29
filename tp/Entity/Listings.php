@@ -11,7 +11,7 @@ class Listings
   private string $produce_year;
   private int $mileage;
   private string $price;
-  private DateTime $publish_at;
+  private string $publish_at;
 
 
   public function getId(): int
@@ -95,12 +95,12 @@ class Listings
     $this->price = $price;
   }
 
-  public function getPublishAt(): ?DateTime
+  public function getPublishAt(): ?string
   {
     return $this->publish_at;
   }
 
-  public function setPublishAt(?DateTime $publish_at): void
+  public function setPublishAt(?string $publish_at): void
   {
     $this->publish_at = $publish_at;
   }
