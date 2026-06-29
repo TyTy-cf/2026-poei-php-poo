@@ -1,6 +1,6 @@
 <?php
 
-class Models
+class Categories
 {
 
     private int $id;
@@ -9,17 +9,12 @@ class Models
 
     private string $description;
 
-    /**
-     * FK "brand_id" en BDD, alors attribut du type de la table en relation, ici Brands
-     */
-    private Brands $brand;
-
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function setId($id)
+    public function setId(int $id): void
     {
         $this->id = $id;
     }
@@ -42,16 +37,6 @@ class Models
     public function setDescription($description)
     {
         $this->description = $description;
-    }
-
-    public function getBrand(): Brands
-    {
-        return $this->brand;
-    }
-
-    public function setBrand(Brands $brand)
-    {
-        $this->brand = $brand;
     }
 
 }

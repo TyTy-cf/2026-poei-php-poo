@@ -11,9 +11,9 @@ class Brands
     private string $description;
 
     // Attributs d'exemple pour illustrer des cas
-    private DateTime $birthedAt;
-    private DateTime $createdAt;
-    private ?DateTime $updatedAt;
+//    private DateTime $birthedAt;
+//    private DateTime $createdAt;
+//    private ?DateTime $updatedAt;
 
     public function getId(): ?int
     {
@@ -46,18 +46,18 @@ class Brands
     }
 
     // Exemple de méthodes utilitaires dans les classes
-
-    public function getAge(): int
-    {
-        return date("Y", new DateTime()) - date("Y", $this->birthedAt);
-    }
-
-    public function getDisplayedDate(): DateTime
-    {
-        if ($this->updatedAt !== null) {
-            return $this->updatedAt;
-        }
-        return $this->createdAt;
-    }
+//
+//    public function getAge(): int
+//    {
+//        return date("Y", new DateTime()) - date("Y", $this->birthedAt);
+//    }
+//
+//    public function getDisplayedDate(): DateTime
+//    {
+//        if ($this->updatedAt !== null) {
+//            return $this->updatedAt;
+//        }
+//        return $this->createdAt;
+//    }
 
 }
