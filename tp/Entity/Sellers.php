@@ -11,10 +11,6 @@ class Sellers
     private string $location;
     private string $phone_number;
 
-    public function __construct()
-    {
-    }
-
     public function getId(): int
     {
         return $this->id;

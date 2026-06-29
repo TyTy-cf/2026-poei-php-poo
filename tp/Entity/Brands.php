@@ -11,10 +11,6 @@ class Brands
 
     private string $description;
 
-    public function __construct()
-    {
-    }
-
     public function getId(): int
     {
         return $this->id;

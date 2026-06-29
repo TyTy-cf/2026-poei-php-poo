@@ -7,6 +7,7 @@ include "Entity/Categories.php";
 include "Entity/Sellers.php";
 include "Entity/Models.php";
 include "Entity/Listings.php";
+
 include_once "../src/Utility/utility.php";
 
 $dacia = new Brands();
@@ -49,7 +50,7 @@ dump($dacia);
 dump($berline);
 dump($seller);
 dump($model);
-
+dump($listing);
 
 ?>
 

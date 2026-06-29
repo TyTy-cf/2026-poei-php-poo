@@ -16,10 +16,6 @@ class Listings
     private float $price;
     private string $publish_at;
 
-    public function __construct()
-    {
-    }
-
     public function getId(): int
     {
         return $this->id;
