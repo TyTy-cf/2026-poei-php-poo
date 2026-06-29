@@ -1,6 +1,5 @@
 <?php
 
-    include_once "./src/Utility/utility.php";
 
 ?>
 
