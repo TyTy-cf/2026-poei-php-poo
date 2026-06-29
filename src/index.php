@@ -1,17 +1,18 @@
 <?php
 
-include_once "./Utility/utility.php";
-include_once "./Entity/Brands.php";
-include_once "./Entity/Categories.php";
-include_once "./Entity/Listings.php";
-include_once "./Entity/Models.php";
-include_once "./Entity/Sellers.php";
+    include_once "./Utility/utility.php";
+    include_once "./Entity/Brands.php";
 
-$brand = new Brands();
-$category = new Categories();
-$listing = new Listings();
-$model = new Models();
-$seller = new Sellers();
+    $brand = new Brands();
+    $brand->setId(1);
+    $brand->setLabel("Ford");
+
+    $brand2 = new Brands();
+    $brand2->setId(2);
+    $brand2->setLabel("Opel");
+
+    dump($brand->getLabel());
+    dump($brand2);
 
 dump($brand);
 dump($category);
