@@ -21,6 +21,40 @@ class Pokemon
   private string $name_api;
   private int $is_default;
 
+  public function __construct(
+    int $id,
+    int $weight,
+    int $height,
+    int $base_experience,
+    int $hp,
+    int $atk,
+    int $def,
+    int $spa,
+    int $spd,
+    int $spe,
+    string $name,
+    string $slug,
+    string $id_api,
+    string $name_api,
+    int $is_default
+  ) {
+    $this->id = $id;
+    $this->weight = $weight;
+    $this->height = $height;
+    $this->base_experience = $base_experience;
+    $this->hp = $hp;
+    $this->atk = $atk;
+    $this->def = $def;
+    $this->spa = $spa;
+    $this->spd = $spd;
+    $this->spe = $spe;
+    $this->name = $name;
+    $this->slug = $slug;
+    $this->id_api = $id_api;
+    $this->name_api = $name_api;
+    $this->is_default = $is_default;
+  }
+
   /**
    * Get the value of id
    */

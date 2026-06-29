@@ -5,6 +5,7 @@ include_once "./Entity/Categories.php";
 include_once "./Entity/Listings.php";
 include_once "./Entity/Models.php";
 include_once "./Entity/Sellers.php";
+include_once "./Entity/Pokemon.php";
 
 $swift = new Brands();
 $swift->setId(1);
@@ -42,11 +43,32 @@ $listing->setMileage(120000);
 $listing->setPrice(8000);
 $listing->setPublishAt(date("Y-m-d H:i:s"));
 
-dump($swift);
-dump($citadine);
-dump($model);
-dump($brice);
-dump($listing);
+
+$bulbizarre = new Pokemon(
+  1,
+  69,
+  7,
+  64,
+  45,
+  49,
+  49,
+  65,
+  65,
+  45,
+  "Bulbizarre",
+  "bulbizarre",
+  "1",
+  "bulbasaur",
+  true
+);
+dump($bulbizarre);
+
+
+// dump($swift);
+// dump($citadine);
+// dump($model);
+// dump($brice);
+// dump($listing);
 
 ?>
 
