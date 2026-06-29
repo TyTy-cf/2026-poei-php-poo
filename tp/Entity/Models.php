@@ -2,15 +2,15 @@
 
 
 
-class Models 
+class Models
 {
-
   private int $id;
-  private int $brand_id;
-  private int $category_id;
+  private Brands $brand;
+  private Categories $category;
   private string $label;
   private string $description;
 
+  public function __construct() {}
 
   public function getId(): int
   {
@@ -22,6 +22,29 @@ class Models
     $this->id = $id;
   }
 
+
+  public function getBrand(): Brands
+  {
+    return $this->brand;
+  }
+
+  public function setBrand(Brands $brand): void
+  {
+    $this->brand = $brand;
+  }
+
+
+  public function getCategory(): Categories
+  {
+    return $this->category;
+  }
+
+  public function setCategory(Categories $category): void
+  {
+    $this->category = $category;
+  }
+
+
   public function getLabel(): string
   {
     return $this->label;
@@ -32,12 +55,13 @@ class Models
     $this->label = $label;
   }
 
-  public function getDescription(): ?string
+  
+  public function getDescription(): string
   {
     return $this->description;
   }
 
-  public function setDescription(?string $description): void
+  public function setDescription(string $description): void
   {
     $this->description = $description;
   }

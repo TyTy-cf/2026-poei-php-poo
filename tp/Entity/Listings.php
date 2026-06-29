@@ -2,15 +2,14 @@
 
 class Listings
 {
-
   private int $id;
-  private int $seller_id;
-  private int $model_id;
+  private Sellers $seller;
+  private Models $model;
   private string $title;
-  private string $description;
+  private ?string $description;
   private string $produce_year;
   private int $mileage;
-  private string $price;
+  private float $price;
   private string $publish_at;
 
 
@@ -24,36 +23,39 @@ class Listings
     $this->id = $id;
   }
 
-  public function getSellerId(): int
+
+  public function getSeller(): Sellers
   {
-    return $this->seller_id;
+    return $this->seller;
   }
 
-  public function setSellerId(int $id): void
+  public function setSeller(Sellers $seller): void
   {
-    // I have no idea
-  }
-
-  public function getModelId(): int
-  {
-    return $this->model_id;
-  }
-
-  public function setModelId(int $id): void
-  {
-    // I have no idea
+    $this->seller = $seller;
   }
 
 
-  public function getTitle(): ?string
+  public function getModel(): Models
+  {
+    return $this->model;
+  }
+
+  public function setModel(Models $model): void
+  {
+    $this->model = $model;
+  }
+
+
+  public function getTitle(): string
   {
     return $this->title;
   }
 
-  public function setTitle(?string $title): void
+  public function setTitle(string $title): void
   {
     $this->title = $title;
   }
+
 
   public function getDescription(): ?string
   {
@@ -65,42 +67,46 @@ class Listings
     $this->description = $description;
   }
 
-  public function getProduceYear(): ?string
+
+  public function getProduceYear(): string
   {
     return $this->produce_year;
   }
 
-  public function setProduceYear(?string $produce_year): void
+  public function setProduceYear(string $produce_year): void
   {
     $this->produce_year = $produce_year;
   }
 
-  public function getMileage(): ?int
+
+  public function getMileage(): int
   {
     return $this->mileage;
   }
 
-  public function setMileage(?int $mileage): void
+  public function setMileage(int $mileage): void
   {
     $this->mileage = $mileage;
   }
 
-  public function getPrice(): ?float
+
+  public function getPrice(): float
   {
     return $this->price;
   }
 
-  public function setPrice(?float $price): void
+  public function setPrice(float $price): void
   {
     $this->price = $price;
   }
 
-  public function getPublishAt(): ?string
+
+  public function getPublishAt(): string
   {
     return $this->publish_at;
   }
 
-  public function setPublishAt(?string $publish_at): void
+  public function setPublishAt(string $publish_at): void
   {
     $this->publish_at = $publish_at;
   }
