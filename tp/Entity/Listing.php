@@ -2,15 +2,16 @@
 
 namespace Entity;
 
+use DateTime;
 
 class Listings
 {
     private int $id;
     private Sellers $seller;
-    private Model $model;
+    private Models $model;
     private string $title;
     private ?string $description = null;
-    private string $produceYear;
+    private int $produceYear;
     private int $mileage;
     private float $price;
     private DateTime $publishAt;
@@ -19,68 +20,89 @@ class Listings
     {
         return $this->id;
     }
-    public function setId(int $id): void {
+
+    public function setId(int $id): void
+    {
         $this->id = $id;
     }
 
-    public function getSellerId(): int {
-        return $this->sellerId;
-    }
-    public function setSellerId(int $sellerId): void
+    public function getSeller(): Sellers
     {
-        $this->sellerId = $sellerId;
+        return $this->seller;
     }
 
-    public function getModelId(): int
+    public function setSeller(Sellers $seller): void
     {
-        return $this->modelId;
+        $this->seller = $seller;
     }
-    public function setModelId(int $modelId): void {
-        $this->modelId = $modelId;
 
+    public function getModel(): Models
+    {
+        return $this->model;
+    }
+
+    public function setModel(Models $model): void
+    {
+        $this->model = $model;
     }
 
     public function getTitle(): string
     {
         return $this->title;
     }
-    public function setTitle(string $title): void {
+
+    public function setTitle(string $title): void
+    {
         $this->title = $title;
     }
 
-    public function getDescription(): ?string {
+    public function getDescription(): ?string
+    {
         return $this->description;
     }
-    public function setDescription(?string $description): void {
-        $this->description = $description;
 
+    public function setDescription(?string $description): void
+    {
+        $this->description = $description;
     }
 
-    public function getProduceYear(): string {
+    public function getProduceYear(): int
+    {
         return $this->produceYear;
     }
-    public function setProduceYear(string $produceYear): void {
+
+    public function setProduceYear(int $produceYear): void
+    {
         $this->produceYear = $produceYear;
     }
 
-    public function getMileage(): int {
+    public function getMileage(): int
+    {
         return $this->mileage;
     }
-    public function setMileage(int $mileage): void {
+
+    public function setMileage(int $mileage): void
+    {
         $this->mileage = $mileage;
     }
 
-    public function getPrice(): float {
+    public function getPrice(): float
+    {
         return $this->price;
     }
-    public function setPrice(float $price): void {
+
+    public function setPrice(float $price): void
+    {
         $this->price = $price;
     }
 
-    public function getPublishAt(): DateTime {
+    public function getPublishAt(): DateTime
+    {
         return $this->publishAt;
     }
-    public function setPublishAt(DateTime $publishAt): void {
+
+    public function setPublishAt(DateTime $publishAt): void
+    {
         $this->publishAt = $publishAt;
     }
 }

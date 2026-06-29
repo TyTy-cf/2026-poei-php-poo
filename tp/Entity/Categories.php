@@ -1,5 +1,6 @@
 <?php
 
+namespace Entity;
 
 class Categories
 {
@@ -36,6 +37,4 @@ class Categories
     {
         $this->description = $description;
     }
-
-
 }

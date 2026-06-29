@@ -2,9 +2,6 @@
 
 namespace Entity;
 
-
-
-
 class Models
 {
     private int $id;
@@ -17,33 +14,37 @@ class Models
     {
         return $this->id;
     }
+
     public function setId(int $id): void
     {
         $this->id = $id;
     }
 
-    public function getBrand(): Brand
+    public function getBrand(): Brands
     {
         return $this->brand;
     }
-    public function setBrand(Brand $brand): void
+
+    public function setBrand(Brands $brand): void
     {
         $this->brand = $brand;
     }
 
-    public function getCategoryId(): int
+    public function getCategory(): Categories
     {
-        return $this->categoryId;
+        return $this->category;
     }
-    public function setCategoryId(int $categoryId): void
+
+    public function setCategory(Categories $category): void
     {
-        $this->categoryId = $categoryId;
+        $this->category = $category;
     }
 
     public function getLabel(): string
     {
         return $this->label;
     }
+
     public function setLabel(string $label): void
     {
         $this->label = $label;
@@ -53,6 +54,7 @@ class Models
     {
         return $this->description;
     }
+
     public function setDescription(?string $description): void
     {
         $this->description = $description;
