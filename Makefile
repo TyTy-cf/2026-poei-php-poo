@@ -1,9 +1,3 @@
-DOCKER_COMPOSE ?= docker compose
-DOCKER_USER ?= "$(shell id -u):$(shell id -g)"
-ENV ?= "dev"
-PREFIX ?= "db_pokemons"
-DB_NAME="db_pokemons"
-
 init:
 	@$(MAKE) up-build
 	@echo "Waiting for the database to be ready..."
