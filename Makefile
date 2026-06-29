@@ -13,6 +13,7 @@ init:
 db:
 	@echo "DELETE DB... and importing initial database structure and data..."
 	@docker compose exec -T mariadb mariadb -uroot -proot < ./bdd_pokemons.sql
+	@docker compose exec -T mariadb mariadb -uroot -proot < ./bdd_centraleish.sql
 	@echo "Database import completed."
 
 up:
