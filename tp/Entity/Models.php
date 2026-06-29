@@ -5,6 +5,10 @@ class Models
 
     private int $id;
 
+    private Brands $brand;
+
+    private Categories $category;
+
     private string $label;
 
     private string $description;
@@ -13,6 +17,14 @@ class Models
 
     public function getId(): ?int {
         return $this->id;
+    }
+
+    public function getBrand(): ?Brands {
+        return $this->brand;
+    }
+
+    public function getCategories(): ?Categories {
+        return $this->category;
     }
 
     public function getLabel(): ?string {
@@ -27,6 +39,14 @@ class Models
 
     public function setId(int $id): void {
         $this->id = $id;
+    }
+
+    public function setBrand(Brands $brand): void {
+        $this->brand = $brand;
+    }
+
+    public function setCategory(Categories $category): void {
+        $this->category = $category;
     }
 
     public function setLabel(string $label): void {

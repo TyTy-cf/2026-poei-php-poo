@@ -66,7 +66,7 @@ class Sellers
     public function setPhoneNumber(string $phone_number): void {
         $this->phone_number = $phone_number;
     }
-    
+
 }
 
 ?>

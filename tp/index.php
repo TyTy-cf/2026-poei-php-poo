@@ -19,17 +19,10 @@
     $category->setDescription("On m'entend ?");
     dump($category);
 
-    $listing = new Listings();
-    $listing->setId(1);
-    $listing->setTitle("Vend Voiture qui fait Vroom");
-    $listing->setDescription("1 cheval");
-    $listing->setProduceYear("1912");
-    $listing->setMileAge("101010");
-    $listing->setPrice(6789,01);
-    dump($listing);
-
     $model = new Models();
     $model->setId(1);
+    $model->setBrand($brand);
+    $model->setCategory($category);
     $model->setLabel("Clio");
     $model->setDescription("Ça roule.. C'est bien non ?");
     dump($model);
@@ -42,6 +35,17 @@
     $seller->setLocation("Élysée");
     $seller->setPhoneNumber("+333630");
     dump($seller);
+
+    $listing = new Listings();
+    $listing->setId(1);
+    $listing->setSeller($seller);
+    $listing->setModel($model);
+    $listing->setTitle("Vend Voiture qui fait Vroom");
+    $listing->setDescription("1 cheval");
+    $listing->setProduceYear("1912");
+    $listing->setMileAge("101010");
+    $listing->setPrice(6789,01);
+    dump($listing);
 
 ?>
 
