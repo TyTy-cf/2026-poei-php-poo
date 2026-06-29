@@ -1,6 +1,6 @@
 <?php
 
-class Models
+class Listings
 {
 
   private int $id;
@@ -12,9 +12,6 @@ class Models
   private int $mileage;
   private string $price;
   private DateTime $publish_at;
-
-
-
 
 
   public function getId(): int

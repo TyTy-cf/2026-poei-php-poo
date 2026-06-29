@@ -1,7 +1,8 @@
 <?php
 
 
-class Models
+
+class Models 
 {
 
   private int $id;
