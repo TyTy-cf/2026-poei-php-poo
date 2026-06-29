@@ -36,7 +36,7 @@ class Categories
         $this->label = $label;
     }
 
-    public function setDescription(int $description)
+    public function setDescription(string $description)
     {
         $this->description = $description;
     }

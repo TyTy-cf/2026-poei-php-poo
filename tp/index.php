@@ -10,6 +10,50 @@ include_once"../tp/Entity/Sellers.php";
 
 ?>
 
+<?php $brando = new Brands();
+$brando->setId(1);
+$brando->setLabel("Toyota");
+$brando->setDescription("Super marque de tuture");
+dump($brando); ?>
+
+<?php $category = new Categories();
+$category->setId(2);
+$category->setLabel("4x4");
+$category->setDescription("Super tuture");
+dump($category); ?>
+
+<?php $seller = new Sellers();
+$seller->setId(3);
+$seller->setFirstName("Stéphanie");
+$seller->setLastName("De Monaco");
+$seller->setEmail("stéphanie@demonaco.monaco");
+$seller->setLocation("Monaco City");
+$seller->setPhoneNumber("0 800 77 24 24");
+dump($seller); ?>
+
+<?php $model = new Models();
+$model->setId(4);
+$model->setLabel("Rav4");
+$model->setDescription("Description d'un model de tuture");
+$model->setBrand($brando);
+$model->setCategory($category);
+dump($model);
+?>
+
+<?php $listing = new Listings();
+$listing->setId(5);
+$listing->setSeller($seller);
+$listing->setModel($model);
+$listing->setTitle("Vends toyota rav4 pas cher");
+$listing->setDescription("La toyota vraiment pas cher");
+$listing->setProduceYear("2030");
+$listing->setMileage(42690);
+$listing->setPrice(8000.80);
+$listing->setPublishAt(new DateTime());
+dump($listing);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,17 +61,7 @@ include_once"../tp/Entity/Sellers.php";
         <title>2026 POEI PHP POO</title>
     </head>
     <body>
-   <?php $brando = new Brands();
-    $brando->setId(1);
-    $brando->setLabel("Toyota");
-    $brando->setDescription("Super marque de tuture");
-    dump($brando); ?>
 
-   <?php $category = new Categories();
-   $category->setId(2);
-   $category->setLabel("Rav4");
-   $category->setDescription("Super tuture");
-   dump($category); ?>
 
 
 

@@ -47,6 +47,35 @@ class Sellers
     }
 
 
-}
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
 
-$seller = new Sellers();
+    public function setFirstName($first_name)
+    {
+        $this->first_name = $first_name;
+    }
+
+    public function setLastName($last_name)
+    {
+        $this->last_name = $last_name;
+    }
+
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    public function setLocation($location)
+    {
+        $this->location = $location;
+    }
+
+    public function setPhoneNumber($phone_number)
+    {
+        $this->phone_number = $phone_number;
+    }
+
+
+}
