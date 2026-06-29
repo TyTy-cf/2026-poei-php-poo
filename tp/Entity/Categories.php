@@ -25,6 +25,19 @@ class Categories
         return $this->description;
     }
 
-}
 
-$category = new Categories();
+    public function setId(int $id)
+    {
+        $this->id = $id;
+    }
+
+    public function setLabel(string $label)
+    {
+        $this->label = $label;
+    }
+
+    public function setDescription(int $description)
+    {
+        $this->description = $description;
+    }
+}

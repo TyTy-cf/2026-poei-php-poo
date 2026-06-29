@@ -53,6 +53,5 @@ class Listings
     {
         return $this->publish_at;
     }
-}
 
-$listing = new Listings();
+}
