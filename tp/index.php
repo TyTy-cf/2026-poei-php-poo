@@ -30,12 +30,16 @@ dump($seller);
 
 $model = new Models();
 $model->setId(1);
+$model->setBrand($brand);
+$model->setCategory($categorie);
 $model->setLabel("models label");
 $model->setDescription("models description");
 dump($model);
 
 $listing = new Listings();
 $listing->setId(1);
+$listing->setSeller($seller);
+$listing->setModel($model);
 $listing->setTitle("listings title");
 $listing->setDescription("listings description");
 $listing->setProduceYear("listings produce year");

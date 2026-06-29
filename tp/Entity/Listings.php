@@ -1,9 +1,13 @@
 <?php
-
+include_once 'Models.php';
+include_once 'Sellers.php';
 class Listings
 {
 
     private int $id;
+
+    private Sellers $seller;
+    private Models $model;
     private string $title;
     private string $description;
     private string $produceYear;
@@ -25,6 +29,28 @@ class Listings
     {
         return $this->title;
     }
+
+    public function getSeller(): Sellers
+    {
+        return $this->seller;
+    }
+
+    public function setSeller(Sellers $seller): void
+    {
+        $this->seller = $seller;
+    }
+
+    public function getModel(): Models
+    {
+        return $this->model;
+    }
+
+    public function setModel(Models $model): void
+    {
+        $this->model = $model;
+    }
+
+
 
     public function setTitle(string $title): void
     {
