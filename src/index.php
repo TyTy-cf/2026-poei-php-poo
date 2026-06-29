@@ -38,9 +38,9 @@
 
         // Exemple de méthodes utilitaires dans les classes
 
-        public function getAge(): int
+        public function getAge(): void
         {
-            return date("Y", new DateTime()) - date("Y", $this->birthedAt);
+            // return date("Y", new DateTime()) - date("Y", $this->birthedAt);
         }
 
         public function getDisplayedDate(): DateTime
