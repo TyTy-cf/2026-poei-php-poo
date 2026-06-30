@@ -339,11 +339,11 @@ class Pokemon
 
   public function deleteById()
   {
-    return $id;
+    echo "delete.php?pokemon_id=" . $this->getId();
   }
 
   public function editById()
   {
-    return $id;
+    echo "edit.php?pokemon_id=" . $this->getId();
   }
 }
