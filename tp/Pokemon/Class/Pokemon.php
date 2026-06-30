@@ -160,7 +160,7 @@ class Pokemon
         $this->nameApi = $nameApi;
     }
 
-    public function isIsDefault(): bool
+    public function getIsDefault(): bool
     {
         return $this->isDefault;
     }
@@ -169,4 +169,5 @@ class Pokemon
     {
         $this->isDefault = $isDefault;
     }
+
 }

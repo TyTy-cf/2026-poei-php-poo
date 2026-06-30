@@ -7,4 +7,4 @@ include_once __DIR__ . "/../../src/Utility/utility.php";
 
 $pokemonRep = new PokemonRepository();
 
-dump($pokemonRep->fetchAll());
+dump($pokemonRep->fetchById(1));
