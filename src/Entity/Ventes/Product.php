@@ -1,8 +1,7 @@
 <?php
 
-include_once "./Traits/EntityTrait.php";
-include_once "./Traits/TimestampTrait.php";
-
+include_once "Traits/EntityTrait.php";
+include_once "Traits/TimestampTrait.php";
 
 class Product
 {
