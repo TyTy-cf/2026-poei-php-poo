@@ -1,15 +1,15 @@
 <?php
 
+include_once "./Traits/EntityTrait.php";
+include_once "./Traits/TimestampTrait.php";
+
 class Category
 {
 
-    private int $id;
-
-    private string $label;
+    use EntityTrait;
+    use TimestampTrait;
 
     private string $description;
-
-    private DateTime $createdAt;
 
     private string $image;
 
@@ -19,26 +19,6 @@ class Category
 
     private array $children = [];
 
-    public function getId(): int
-    {
-        return $this->id;
-    }
-
-    public function setId(int $id): void
-    {
-        $this->id = $id;
-    }
-
-    public function getLabel(): string
-    {
-        return $this->label;
-    }
-
-    public function setLabel(string $label): void
-    {
-        $this->label = $label;
-    }
-
     public function getDescription(): string
     {
         return $this->description;
@@ -47,16 +27,6 @@ class Category
     public function setDescription($description)
     {
         $this->description = $description;
-    }
-
-    public function getCreatedAt(): DateTime
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(DateTime $createdAt): void
-    {
-        $this->createdAt = $createdAt;
     }
 
     public function getImage(): string
