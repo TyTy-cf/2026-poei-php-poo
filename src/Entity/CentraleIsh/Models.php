@@ -1,13 +1,10 @@
 <?php
 
+include_once "./Traits/TraitBaseInfos.php";
+
 class Models
 {
-
-    private int $id;
-
-    private string $label;
-
-    private string $description;
+    use TraitBase;
 
     /**
      * FK "brand_id" en BDD, alors attribut du type de la table en relation, ici Brands
@@ -16,35 +13,6 @@ class Models
 
     private Categories $category;
 
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    public function getLabel(): string
-    {
-        return $this->label;
-    }
-
-    public function setLabel(string $label): void
-    {
-        $this->label = $label;
-    }
-
-    public function getDescription(): string
-    {
-        return $this->description;
-    }
-
-    public function setDescription($description)
-    {
-        $this->description = $description;
-    }
 
     public function getBrand(): Brands
     {

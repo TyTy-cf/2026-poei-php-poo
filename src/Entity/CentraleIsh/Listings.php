@@ -1,13 +1,16 @@
 <?php
 
+use Entity\Traits\TraitDescription;
+
+include_once '/Traits/TraitDescription.php';
+
 class Listings
 {
 
-    private int $id;
 
+    use TraitDescription;
     private string $title;
 
-    private string $description;
 
     private string $produceYear;
 
