@@ -1,13 +1,13 @@
 <?php
 
+include_once "Traits/DescriptionTrait.php";
+
 class Listings
 {
 
-    private int $id;
+    use DescriptionTrait;
 
     private string $title;
-
-    private string $description;
 
     private string $produceYear;
 
@@ -21,16 +21,6 @@ class Listings
 
     private Models $models;
 
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
     public function getTitle()
     {
         return $this->title;
@@ -39,16 +29,6 @@ class Listings
     public function setTitle($title)
     {
         $this->title = $title;
-    }
-
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    public function setDescription($description)
-    {
-        $this->description = $description;
     }
 
     public function getProduceYear()
