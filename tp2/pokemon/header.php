@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . "/pdo.php";
+include __DIR__ . "/getImage.php";
 ?>
 
 <html lang="en" data-bs-theme="dark">

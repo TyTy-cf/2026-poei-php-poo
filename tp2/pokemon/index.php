@@ -2,11 +2,11 @@
 
 include __DIR__ . "/Pokemon.php";
 include __DIR__ . "/header.php";
+include __DIR__ . "/PokemonRepository.php";
 
-$sql = "SELECT * FROM pokemon";
-$stmt = $pdo->prepare($sql);
-$stmt->execute();
-$pokemons = $stmt->fetchALL(PDO::FETCH_CLASS, "Pokemon");
+$repository = new PokemonRepository();
+$pokemons = $repository->fetchAll();
+
 
 $firstGeneationPokemons = array_slice($pokemons, 0, 151);
 ?>
