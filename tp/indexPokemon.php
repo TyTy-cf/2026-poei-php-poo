@@ -11,12 +11,23 @@ $repository->setPdo($pdo);
 
 $pokemons = $repository->fetchAll();
 
-var_dump($pokemons[0]);
+dump($pokemons[0]);
 
-pokemons[0]->getName();
+$pokemon = $repository->fetchById(473);
+dump($pokemon);
+
+
 ?>
 
 
 <?php
 include __DIR__ . "/components/footer.php";
+?>
+
+<?php function dump(mixed $data): void
+{
+    echo '<pre>';
+    print_r($data);
+    echo '</pre>';
+}
 ?>

@@ -2,10 +2,11 @@
 
 class Pokemon
 {
-    private ?int $id;
+
+    private int $id;
     private int $weight;
     private int $height;
-    private int $baseExperience;
+    private int $base_experience;
     private int $hp;
     private int $atk;
     private int $def;
@@ -14,157 +15,329 @@ class Pokemon
     private int $spe;
     private string $name;
     private string $slug;
-    private string $idApi;
-    private string $nameApi;
-    private bool $isDefault;
+    private string $id_api;
+    private string $name_api;
+    private int $is_default;
 
-    public function getId(): int
+    /**
+     * Get the value of id
+     */
+    public function getId()
     {
         return $this->id;
     }
 
-    public function setId(?int $id): void
-    {
-        $this->id = $id;
-    }
 
-    public function getWeight(): int
+    /**
+     * Get the value of weight
+     */
+    public function getWeight()
     {
         return $this->weight;
     }
 
-    public function setWeight(int $weight): void
-    {
-        $this->weight = $weight;
-    }
 
-    public function getHeight(): int
+    /**
+     * Get the value of height
+     */
+    public function getHeight()
     {
         return $this->height;
     }
 
-    public function setHeight(int $height): void
+
+    /**
+     * Get the value of base_experience
+     */
+    public function getBase_experience()
     {
-        $this->height = $height;
+        return $this->base_experience;
     }
 
-    public function getBaseExperience(): int
-    {
-        return $this->baseExperience;
-    }
 
-    public function setBaseExperience(int $baseExperience): void
-    {
-        $this->baseExperience = $baseExperience;
-    }
-
-    public function getHp(): int
+    /**
+     * Get the value of hp
+     */
+    public function getHp()
     {
         return $this->hp;
     }
 
-    public function setHp(int $hp): void
-    {
-        $this->hp = $hp;
-    }
 
-    public function getAtk(): int
+    /**
+     * Get the value of atk
+     */
+    public function getAtk()
     {
         return $this->atk;
     }
 
-    public function setAtk(int $atk): void
-    {
-        $this->atk = $atk;
-    }
 
-    public function getDef(): int
+
+    /**
+     * Get the value of def
+     */
+    public function getDef()
     {
         return $this->def;
     }
 
-    public function setDef(int $def): void
-    {
-        $this->def = $def;
-    }
 
-    public function getSpa(): int
+    /**
+     * Get the value of spa
+     */
+    public function getSpa()
     {
         return $this->spa;
     }
 
-    public function setSpa(int $spa): void
-    {
-        $this->spa = $spa;
-    }
 
-    public function getSpd(): int
+    /**
+     * Get the value of spd
+     */
+    public function getSpd()
     {
         return $this->spd;
     }
 
-    public function setSpd(int $spd): void
-    {
-        $this->spd = $spd;
-    }
 
-    public function getSpe(): int
+    /**
+     * Get the value of spe
+     */
+    public function getSpe()
     {
         return $this->spe;
     }
 
-    public function setSpe(int $spe): void
-    {
-        $this->spe = $spe;
-    }
 
-    public function getName(): string
+    /**
+     * Get the value of name
+     */
+    public function getName()
     {
         return $this->name;
     }
 
-    public function setName(string $name): void
-    {
-        $this->name = $name;
-    }
 
-    public function getSlug(): string
+    /**
+     * Get the value of slug
+     */
+    public function getSlug()
     {
         return $this->slug;
     }
 
-    public function setSlug(string $slug): void
+
+    /**
+     * Get the value of id_api
+     */
+    public function getId_api()
+    {
+        return $this->id_api;
+    }
+
+
+    /**
+     * Get the value of name_api
+     */
+    public function getName_api()
+    {
+        return $this->name_api;
+    }
+
+
+    /**
+     * Get the value of is_default
+     */
+    public function getIs_default()
+    {
+        return $this->is_default;
+    }
+
+
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Set the value of weight
+     *
+     * @return  self
+     */
+    public function setWeight($weight)
+    {
+        $this->weight = $weight;
+
+        return $this;
+    }
+
+    /**
+     * Set the value of height
+     *
+     * @return  self
+     */
+    public function setHeight($height)
+    {
+        $this->height = $height;
+
+        return $this;
+    }
+
+    /**
+     * Set the value of base_experience
+     *
+     * @return  self
+     */
+    public function setBase_experience($base_experience)
+    {
+        $this->base_experience = $base_experience;
+
+        return $this;
+    }
+
+    /**
+     * Set the value of hp
+     *
+     * @return  self
+     */
+    public function setHp($hp)
+    {
+        $this->hp = $hp;
+
+        return $this;
+    }
+
+    /**
+     * Set the value of atk
+     *
+     * @return  self
+     */
+    public function setAtk($atk)
+    {
+        $this->atk = $atk;
+
+        return $this;
+    }
+
+    /**
+     * Set the value of def
+     *
+     * @return  self
+     */
+    public function setDef($def)
+    {
+        $this->def = $def;
+
+        return $this;
+    }
+
+    /**
+     * Set the value of spa
+     *
+     * @return  self
+     */
+    public function setSpa($spa)
+    {
+        $this->spa = $spa;
+
+        return $this;
+    }
+
+    /**
+     * Set the value of spd
+     *
+     * @return  self
+     */
+    public function setSpd($spd)
+    {
+        $this->spd = $spd;
+
+        return $this;
+    }
+
+    /**
+     * Set the value of spe
+     *
+     * @return  self
+     */
+    public function setSpe($spe)
+    {
+        $this->spe = $spe;
+
+        return $this;
+    }
+
+    /**
+     * Set the value of name
+     *
+     * @return  self
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Set the value of slug
+     *
+     * @return  self
+     */
+    public function setSlug($slug)
     {
         $this->slug = $slug;
+
+        return $this;
     }
 
-    public function getIdApi(): string
+    /**
+     * Set the value of id_api
+     *
+     * @return  self
+     */
+    public function setId_api($id_api)
     {
-        return $this->idApi;
+        $this->id_api = $id_api;
+
+        return $this;
     }
 
-    public function setIdApi(string $idApi): void
+    /**
+     * Set the value of name_api
+     *
+     * @return  self
+     */
+    public function setName_api($name_api)
     {
-        $this->idApi = $idApi;
+        $this->name_api = $name_api;
+
+        return $this;
     }
 
-    public function getNameApi(): string
+    /**
+     * Set the value of is_default
+     *
+     * @return  self
+     */
+    public function setIs_default($is_default)
     {
-        return $this->nameApi;
+        $this->is_default = $is_default;
+
+        return $this;
     }
 
-    public function setNameApi(string $nameApi): void
+    public function getPokemonImage(int $pokemonId)
     {
-        $this->nameApi = $nameApi;
-    }
-
-    public function isIsDefault(): bool
-    {
-        return $this->isDefault;
-    }
-
-    public function setIsDefault(bool $isDefault): void
-    {
-        $this->isDefault = $isDefault;
+        $api_url = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{$pokemonId}.png";
+        return $api_url;
     }
 }

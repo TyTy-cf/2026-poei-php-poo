@@ -5,7 +5,7 @@ class Pokemon
     private ?int $id;
     private int $weight;
     private int $height;
-    private int $baseExperience;
+    private int $base_experience;
     private int $hp;
     private int $atk;
     private int $def;
@@ -14,9 +14,9 @@ class Pokemon
     private int $spe;
     private string $name;
     private string $slug;
-    private string $idApi;
-    private string $nameApi;
-    private bool $isDefault;
+    private string $id_api;
+    private string $name_api;
+    private bool $is_default;
 
     public function getId(): int
     {
