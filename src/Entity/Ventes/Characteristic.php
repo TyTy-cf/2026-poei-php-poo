@@ -1,6 +1,6 @@
 <?php
 
-include_once "./Traits/EntityTrait.php";
+include_once "Traits/EntityTrait.php";
 
 class Characteristic
 {
