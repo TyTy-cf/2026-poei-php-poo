@@ -2,6 +2,7 @@
 
     include_once "../src/Utility/utility.php";
     include "./Entity/Pokemons.php";
+    include "./pdo-poke.php";
 
 
 $pokemon = new Pokemons();

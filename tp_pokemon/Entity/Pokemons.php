@@ -31,7 +31,7 @@ class Pokemons{
 
     private string $name_api;
 
-    private int $is_default;
+    private bool $is_default;
 
     public function getId(): int
     {
@@ -183,12 +183,12 @@ class Pokemons{
         $this->name_api = $name_api;
     }
 
-    public function getIsDefault(): int
+    public function getIsDefault(): bool
     {
         return $this->is_default;
     }
 
-    public function setIsDefault(int $is_default): void
+    public function setIsDefault(bool $is_default): void
     {
         $this->is_default = $is_default;
     }
