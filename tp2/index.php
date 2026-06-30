@@ -1,11 +1,18 @@
 <?php
 include_once "../src/Utility/utility.php";
-include_once "./Entity/Brands.php";
-include_once "./Entity/Categories.php";
-include_once "./Entity/Listings.php";
-include_once "./Entity/Models.php";
-include_once "./Entity/Sellers.php";
-include_once "./Entity/Pokemon.php";
+
+include_once "./Entity/Category.php";
+include_once "./Entity/Product.php";
+
+$category = new Category();
+$category->setId(1);
+$category->setName("Electronics");
+
+$product = new Product();
+$product->setId(1);
+$product->setName("Smartphone");
+$product->setPrice(699.99);
+$product->setCategory($category);
 
 ?>
 

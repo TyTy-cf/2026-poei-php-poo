@@ -1,12 +1,16 @@
 <?php
 class Product
 {
+
+
+  private array $categories = [];
+
   private int $id;
   private string $name;
   private float $price;
   private Category $category;
 
-  
+
   public function getId(): int
   {
     return $this->id;
@@ -22,15 +26,25 @@ class Product
     return $this->price;
   }
 
-  public function getCategory(): Category
-  {
-    return $this->category;
-  }
+
 
   public function setCategory(Category $category): void
   {
     $this->category = $category;
+    $this->categories[] = $category;
   }
+
+  /**
+   * Set the value of name
+   *
+   * @var array $category;
+   */
+
+  public function getCategory(Category $category): array
+  {
+    return $this->categories;
+  }
+
 
   /**
    * Set the value of name
