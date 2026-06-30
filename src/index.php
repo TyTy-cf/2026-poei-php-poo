@@ -1,12 +1,40 @@
 <?php
 
     include_once "./Utility/utility.php";
-    include_once "./Entity/Brands.php";
-    include_once "./Entity/Models.php";
-    include_once "./Entity/Categories.php";
-    include_once "./Entity/Listings.php";
-    include_once "./Entity/Sellers.php";
+    include_once "./Entity/CentraleIsh/Brands.php";
+    include_once "./Entity/CentraleIsh/Models.php";
+    include_once "./Entity/CentraleIsh/Categories.php";
+    include_once "./Entity/CentraleIsh/Listings.php";
+    include_once "./Entity/CentraleIsh/Sellers.php";
 
+    include_once "./Entity/Ventes/Category.php";
+    include_once "./Entity/Ventes/Product.php";
+
+    // parent niveau 0
+    $book = new Category();
+    $book->setId(1);
+    $book->setLabel("Livres");
+
+    // parent niveau 0
+    $music = new Category();
+    $music->setId(3);
+    $music->setLabel("Musique");
+
+    // sous categ niveau 1
+    $classic = new Category();
+    $classic->setId(4);
+    $classic->setLabel("Classique");
+    $classic->setParent($music);
+
+    // sous categ niveau 1
+    $tourism= new Category();
+    $tourism->setId(2);
+    $tourism->setLabel("Livres de tourisme et voyage");
+    $tourism->setParent($book);
+
+    dump($book);
+    dump($music);
+    dump($tourism);
 
     $brand = new Brands();
     $brand->setId(1);
