@@ -1,7 +1,9 @@
 <?php
+include_once "TraitId.php";
+
 class Listings
 {
-    private int $id;
+    use TraitId;
     private Sellers $seller;
     private Models $model;
     private string $title;
@@ -11,14 +13,6 @@ class Listings
     private float $price;
     private Datetime $publish_at;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-    public function setId(?int $id): void
-    {
-        $this->id = $id;
-    }
 
     public function getSeller(): Sellers
     {
