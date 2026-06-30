@@ -17,6 +17,10 @@ class Listings
 
     private DateTime $publishAt;
 
+    private Sellers $sellers;
+
+    private Models $models;
+
     public function getId()
     {
         return $this->id;
@@ -85,6 +89,26 @@ class Listings
     public function setPublishAt($publishAt)
     {
         $this->publishAt = $publishAt;
+    }
+
+    public function getSellers(): Sellers
+    {
+        return $this->sellers;
+    }
+
+    public function setSellers(Sellers $sellers): void
+    {
+        $this->sellers = $sellers;
+    }
+
+    public function getModels(): Models
+    {
+        return $this->models;
+    }
+
+    public function setModels(Models $models): void
+    {
+        $this->models = $models;
     }
 
 }
