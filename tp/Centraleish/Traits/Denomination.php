@@ -1,7 +1,12 @@
 <?php
 
+include_once "./Traits/Common.php";
+
 trait Denomination
 {
+
+    use Common;
+    
     private string $label;
 
     private string $description;

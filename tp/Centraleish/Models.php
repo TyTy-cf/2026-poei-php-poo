@@ -1,13 +1,11 @@
 <?php
 
-include_once "./Traits/Common.php";
-include_once "./Traits/Car.php";
+include_once "./Traits/Denomination.php";
 
 class Models
 {
 
-    use Common;
-    use Car;
+    use Denomination;
 
     private Brands $brand;
 
