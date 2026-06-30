@@ -1,30 +1,21 @@
 <?php
 
-namespace Entity;
+namespace CentraleIsh;
 
+use CentraleIsh\Traits\TraitBasicsTitled;
 use DateTime;
+
+include_once "Traits/TraitBasicsTitled.php";
 
 class Listings
 {
-    private ?int $id;
+    use TraitBasicsTitled;
     private Sellers $seller;
     private Models $model;
-    private string $title;
-    private ?string $description;
     private string $produceYear;
     private int $mileage;
     private float $price;
     private DateTime $publishAt;
-
-    public function getId(): int
-    {
-        return $this->id;
-    }
-
-    public function setId(?int $id): void
-    {
-        $this->id = $id;
-    }
 
     public function getSeller(): Sellers
     {
@@ -44,26 +35,6 @@ class Listings
     public function setModel(Models $model): void
     {
         $this->model = $model;
-    }
-
-    public function getTitle(): string
-    {
-        return $this->title;
-    }
-
-    public function setTitle(string $title): void
-    {
-        $this->title = $title;
-    }
-
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(?string $description): void
-    {
-        $this->description = $description;
     }
 
     public function getProduceYear(): string
