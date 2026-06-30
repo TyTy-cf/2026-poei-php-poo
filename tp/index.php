@@ -54,6 +54,23 @@ dump($listing);
 ?>
 
 
+
+<?php
+$categoriee = new Categoriez();
+$categoriee->setId(1);
+$categoriee->setLabel("Lave-vitre");
+$categoriee->setDescription("Ca lave les vitres en général");
+?>
+
+<?php
+$produit = new Products();
+$produit->setId(2);
+$produit->setLabel("Lave-vitre 2000");
+$produit->setDescription("Super lave-vitre bleu qui brille");
+$produit-> setPrice(1.99);
+$produit->setMarque("L'homme propre");
+$produit->setCategoriee($categoriee);
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
