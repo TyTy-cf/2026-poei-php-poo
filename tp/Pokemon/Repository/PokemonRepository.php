@@ -51,7 +51,7 @@ class PokemonRepository
     }
     public function add(Pokemon $pokemon): void
     {
-        $sql = "INSERT INTO pokemon(weight, height, base_experience, hp, atk, def, spa, spd, spe, name, slug, id_api, name_api, is_default) VALUES (weight, height, base_experience, hp, atk, def, spa, spd, spe, name, slug, id_api, name_api, is_default)" ;
+        $sql = "INSERT INTO pokemon(weight, height, base_experience, hp, atk, def, spa, spd, spe, name, slug, id_api, name_api, is_default) VALUES (:weight, :height, :base_experience, :hp, :atk, :def, :spa, :spd, :spe, :name, :slug, :id_api, :name_api, :is_default)" ;
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
             'weight' => $pokemon->getWeight(),
