@@ -28,28 +28,28 @@ class PokemonRepository
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
 
-        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         $pokemons = [];
 
-        foreach ($rows as $row) {
+        foreach ($items as $item) {
             $pokemon = new Pokemon();
 
-            $pokemon->setId($row['id']);
-            $pokemon->setWeight((int) $row['weight']);
-            $pokemon->setHeight((int) $row['height']);
-            $pokemon->setBaseExperience((int) $row['base_experience']);
-            $pokemon->setHp((int) $row['hp']);
-            $pokemon->setAtk((int) $row['atk']);
-            $pokemon->setDef((int) $row['def']);
-            $pokemon->setSpa((int) $row['spa']);
-            $pokemon->setSpd((int) $row['spd']);
-            $pokemon->setSpe((int) $row['spe']);
-            $pokemon->setName($row['name']);
-            $pokemon->setSlug($row['slug']);
-            $pokemon->setIdApi($row['id_api']);
-            $pokemon->setNameApi($row['name_api']);
-            $pokemon->setIsDefault((bool) $row['is_default']);
+            $pokemon->setId((int)$item['id']);
+            $pokemon->setWeight((int)$item['weight']);
+            $pokemon->setHeight((int)$item['height']);
+            $pokemon->setBaseExperience((int)$item['base_experience']);
+            $pokemon->setHp((int) $item['hp']);
+            $pokemon->setAtk((int) $item['atk']);
+            $pokemon->setDef((int) $item['def']);
+            $pokemon->setSpa((int) $item['spa']);
+            $pokemon->setSpd((int) $item['spd']);
+            $pokemon->setSpe((int) $item['spe']);
+            $pokemon->setName($item['name']);
+            $pokemon->setSlug($item['slug']);
+            $pokemon->setIdApi($item['id_api']);
+            $pokemon->setNameApi($item['name_api']);
+            $pokemon->setIsDefault((bool)$item['is_default']);
 
             $pokemons[] = $pokemon;
         }
