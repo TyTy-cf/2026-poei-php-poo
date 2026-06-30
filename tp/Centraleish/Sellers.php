@@ -1,6 +1,6 @@
 <?php
 
-include_once "./Traits/Common.php";
+include_once __DIR__."/Traits/Common.php";
 
 class Sellers
 {
@@ -40,7 +40,7 @@ class Sellers
     }
 
     // Setters
-    
+
     public function setFirstName(string $firstName): void {
         $this->firstName = $firstName;
     }

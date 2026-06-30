@@ -1,6 +1,6 @@
 <?php
 
-include_once "./Traits/Denomination.php";
+include_once __DIR__."/Traits/Denomination.php";
 
 class Categories
 {

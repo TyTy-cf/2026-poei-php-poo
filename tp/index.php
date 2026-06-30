@@ -1,14 +1,14 @@
 <?php
 
     include_once "../src/Utility/utility.php";
-    include_once "./Entity/Brands.php";
-    include_once "./Entity/Categories.php";
-    include_once "./Entity/Listings.php";
-    include_once "./Entity/Models.php";
-    include_once "./Entity/Sellers.php";
-    include_once "./Entity/Pokemon.php";
-    include_once "./Entity/Product.php";
-    include_once "./Entity/ClothesCategory.php";
+    include_once "./Centraleish/Brands.php";
+    include_once "./Centraleish/Categories.php";
+    include_once "./Centraleish/Listings.php";
+    include_once "./Centraleish/Models.php";
+    include_once "./Centraleish/Sellers.php";
+    include_once "./Pokemon/Pokemon.php";
+    include_once "./Ventes/Product.php";
+    include_once "./Ventes/ClothesCategory.php";
 
     $brand = new Brands();
     $brand->setId(1);

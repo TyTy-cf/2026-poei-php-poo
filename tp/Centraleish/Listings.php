@@ -1,6 +1,6 @@
 <?php
 
-include_once "./Traits/Common.php";
+include_once __DIR__."/Traits/Common.php";
 
 class Listings
 {
