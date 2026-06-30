@@ -13,13 +13,13 @@ $firstGeneationPokemons = array_slice($pokemons, 0, 151);
 
 <div class="row">
   <?php foreach ($firstGeneationPokemons as $pokemon): ?>
-
+    <?php $pokemon_id = $pokemon->getId(); ?>
     <div class="col-4 g-3">
-      <a href="show.php?pokemon_id=<?= $pokemon->getId() ?>">
+      <a href="show.php?pokemon_id=<?= $pokemon_id ?>">
         <div class="card h-100">
-          <img src="<?= getPokemonImage($pokemon->getId()) ?>" class="card-img-top object-fit-cover" style="height: 20rem; object-position: center 20%;" alt="<?= $pokemon->getName() ?>">
-          <a class="delete-btn" href="delete.php?film_id=<?= $pokemon->deleteById() ?>">X</a>
-          <a class="edit-btn" href="edit.php?film_id=<?= $pokemon->editById() ?>">Edit</a>
+          <img src="<?= $pokemon->getPokemonImage($pokemon_id) ?>" class="card-img-top object-fit-cover" style="height: 20rem; object-position: center 20%;" alt="<?= $pokemon->getName() ?>">
+          <a class="delete-btn" href="delete.php?pokemon_id=<?= $pokemon_id ?>">X</a>
+          <a class="edit-btn" href="edit.php?pokemon_id=<?= $pokemon_id ?>">Edit</a>
 
           <div class="card-body">
             <h5 class="card-title"><?= $pokemon->getName() ?></h5>

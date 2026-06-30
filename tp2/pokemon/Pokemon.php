@@ -337,13 +337,9 @@ class Pokemon
     return $this;
   }
 
-  public function deleteById()
+  public function getPokemonImage(int $pokemonId)
   {
-    echo "delete.php?pokemon_id=" . $this->getId();
-  }
-
-  public function editById()
-  {
-    echo "edit.php?pokemon_id=" . $this->getId();
+    $api_url = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{$pokemonId}.png";
+    return $api_url;
   }
 }

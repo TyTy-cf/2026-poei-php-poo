@@ -26,4 +26,18 @@ class PokemonRepository
     ]);
     return $stmt->fetchObject("Pokemon");
   }
+
+  public function deleteById($id)
+  {
+    $sql = "DELETE FROM pokemon WHERE id = :id";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute([
+      'id' => $id
+    ]);
+  }
+
+  public function editById($id)
+  {
+    echo "edit.php?pokemon_id=" . $this->$id;
+  }
 }

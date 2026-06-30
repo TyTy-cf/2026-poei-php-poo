@@ -1,25 +1,20 @@
 <?php
 include __DIR__ . "/header.php";
 
+$id = $_GET["pokemon_id"];
 
-$id = $_GET["film_id"];
+$repository = new PokemonRepository();
+$pokemon = $repository->fetchById($id);
 
-$sql = "SELECT * FROM movies WHERE id = :id";
-
-$stmt = $pdo->prepare($sql);
-$stmt->execute([
-  'id' => $id
-]);
-
-$movie = $stmt->fetch(PDO::FETCH_ASSOC);
-
-
+$id = $pokemon->getId();
+$name = $pokemon->getName();
+$poster_url = $pokemon->getPokemonImage($id);
 
 ?>
-<form method="post" action="edit-treatment.php?film_id=<?= $movie['id'] ?>">
+<form method="post" action="edit-treatment.php?pokemon_id=<?= $id ?>">
   <div class=" form-group">
-    <label for="title">Movie Title:</label>
-    <input class="form-control" id="title" type="text" name="title" value="<?= $movie['title'] ?>">
+    <label for="name">Movie name:</label>
+    <input class="form-control" id="name" type="text" name="name" value="<?= $name ?>">
   </div>
   <div class="form-group">
 
