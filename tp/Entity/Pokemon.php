@@ -9,7 +9,7 @@ class Pokemon
 
     private int $height;
 
-    private int $base_experience;
+    private int $baseExperience;
 
     private int $hp;
 
@@ -27,11 +27,11 @@ class Pokemon
 
     private string $slug;
 
-    private string $id_api;
+    private string $idApi;
 
-    private string $name_api;
+    private string $nameApi;
 
-    private int $is_default;
+    private int $isDefault;
 
     // Getters
 
@@ -48,7 +48,7 @@ class Pokemon
     }
 
     public function getBaseExperience(): ?int {
-        return $this->base_experience;
+        return $this->baseExperience;
     }
 
     public function getHp(): ?int {
@@ -84,15 +84,15 @@ class Pokemon
     }
 
     public function getIdApi(): ?string {
-        return $this->id_api;
+        return $this->idApi;
     }
 
     public function getNameApi(): ?string {
-        return $this->name_api;
+        return $this->nameApi;
     }
 
     public function getIsDefault(): ?int {
-        return $this->is_default;
+        return $this->isDefault;
     }
 
     // Setters
@@ -109,8 +109,8 @@ class Pokemon
         $this->height = $height;
     }
 
-    public function setBaseExperience(int $base_experience): void {
-        $this->base_experience = $base_experience;
+    public function setBaseExperience(int $baseExperience): void {
+        $this->baseExperience = $baseExperience;
     }
 
     public function setHp(int $hp): void {
@@ -145,16 +145,16 @@ class Pokemon
         $this->slug = $slug;
     }
 
-    public function setIdApi(string $id_api): void {
-        $this->id_api = $id_api;
+    public function setIdApi(string $idApi): void {
+        $this->idApi = $idApi;
     }
 
-    public function setNameApi(string $name_api): void {
-        $this->name_api = $name_api;
+    public function setNameApi(string $nameApi): void {
+        $this->nameApi = $nameApi;
     }
 
-    public function setIsDefault(int $is_default): void {
-        $this->is_default = $is_default;
+    public function setIsDefault(int $isDefault): void {
+        $this->isDefault = $isDefault;
     }
 }
 

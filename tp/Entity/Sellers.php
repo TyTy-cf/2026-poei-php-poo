@@ -5,15 +5,15 @@ class Sellers
 
     private int $id;
 
-    private string $first_name;
+    private string $firstName;
 
-    private string $last_name;
+    private string $lastName;
 
     private string $email;
 
     private string $location;
 
-    private string $phone_number;
+    private string $phoneNumber;
 
     // Getters
 
@@ -22,11 +22,11 @@ class Sellers
     }
 
     public function getFirstName(): ?string {
-        return $this->first_name;
+        return $this->firstName;
     }
 
     public function getLastName(): ?string {
-        return $this->last_name;
+        return $this->lastName;
     }
 
     public function getEmail(): ?string {
@@ -38,7 +38,7 @@ class Sellers
     }
 
     public function getPhoneNumber(): ?string {
-        return $this->phone_number;
+        return $this->phoneNumber;
     }
 
     // Setters
@@ -47,12 +47,12 @@ class Sellers
         $this->id = $id;
     }
 
-    public function setFirstName(string $first_name): void {
-        $this->first_name = $first_name;
+    public function setFirstName(string $firstName): void {
+        $this->firstName = $firstName;
     }
 
-    public function setLastName(string $last_name): void {
-        $this->last_name = $last_name;
+    public function setLastName(string $lastName): void {
+        $this->lastName = $lastName;
     }
 
     public function setEmail(string $email): void {
@@ -63,8 +63,8 @@ class Sellers
         $this->location = $location;
     }
 
-    public function setPhoneNumber(string $phone_number): void {
-        $this->phone_number = $phone_number;
+    public function setPhoneNumber(string $phoneNumber): void {
+        $this->phoneNumber = $phoneNumber;
     }
 
 }

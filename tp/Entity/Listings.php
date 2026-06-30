@@ -13,7 +13,7 @@ class Listings
 
     private string $description;
 
-    private string $produce_year;
+    private string $produceYear;
 
     private int $mileage;
 
@@ -44,7 +44,7 @@ class Listings
     }
 
     public function getProduceYear(): ?string {
-        return $this->produce_year;
+        return $this->produceYear;
     }
 
     public function getMileage(): ?int {
@@ -81,8 +81,8 @@ class Listings
         $this->description = $description;
     }
 
-    public function setProduceYear(string $produce_year): void {
-        $this->produce_year = $produce_year;
+    public function setProduceYear(string $produceYear): void {
+        $this->produceYear = $produceYear;
     }
 
     public function setMileage(int $mileage): void {
