@@ -6,6 +6,8 @@ include_once"../tp/Entity/Categories.php";
 include_once"../tp/Entity/Listings.php";
 include_once"../tp/Entity/Models.php";
 include_once"../tp/Entity/Sellers.php";
+include_once"../tp/Entity/Categoriez.php";
+include_once"../tp/Entity/Products.php";
 
 
 ?>
@@ -60,6 +62,7 @@ $categoriee = new Categoriez();
 $categoriee->setId(1);
 $categoriee->setLabel("Lave-vitre");
 $categoriee->setDescription("Ca lave les vitres en général");
+dump($categoriee);
 ?>
 
 <?php
@@ -70,6 +73,7 @@ $produit->setDescription("Super lave-vitre bleu qui brille");
 $produit-> setPrice(1.99);
 $produit->setMarque("L'homme propre");
 $produit->setCategoriee($categoriee);
+dump($produit);
 ?>
 <!DOCTYPE html>
 <html lang="en">

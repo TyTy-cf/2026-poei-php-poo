@@ -11,9 +11,10 @@ class Products
 
     private float $price;
 
-    private string $marque
+    private string $marque;
 
     private Categoriez $categoriee;
+
 public function getMarque(): string
 {
     return $this->marque;

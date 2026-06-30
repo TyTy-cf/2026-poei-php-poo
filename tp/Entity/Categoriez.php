@@ -8,6 +8,8 @@ class Categoriez{
 
     private string $description;
 
+
+
     public function getId(): int
     {
         return $this->id;
