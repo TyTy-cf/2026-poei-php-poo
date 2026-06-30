@@ -14,6 +14,8 @@ class Models
      */
     private Brands $brand;
 
+    private Categories $category;
+
     public function getId()
     {
         return $this->id;
@@ -52,6 +54,16 @@ class Models
     public function setBrand(Brands $brand)
     {
         $this->brand = $brand;
+    }
+
+    public function getCategory(): Categories
+    {
+        return $this->category;
+    }
+
+    public function setCategory(Categories $category): void
+    {
+        $this->category = $category;
     }
 
 }
