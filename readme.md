@@ -20,3 +20,32 @@ Toutes les classes doivent :
 - Ne pas avoir de constructeur déclaré (constructeur vide)
 - Tester dans chaque classe (via un `dump` une instance de votre classe)
 
+
+## 2. Traits
+
+
+Reprendre les classes de la centralish, en ajoutant les traits que vous jugerez nécessaires.
+
+
+## 3. PokemonRepository
+
+
+L'objectif de cette classe est de : permettre l'accès à toutes les méthodes permettant d'interroger la table `Pokémon`
+
+Méthodes ou attributs nécessaires :
+
+- Un PDO ?
+```php
+$pdo = new PDO(
+    'mysql:127.0.0.1;dbname=db_pokemons;charset=utf8;port=3306',
+    'root',
+    'root'
+);
+```
+
+- `fetchAll`: Récupère toutes les donées de la table `pokemon`
+- `fetchById`: Récupère un `pokemon` en passant son id
+- `deleteById`: Supprime un `pokemon` en passant son id
+
+- Astuce : `$stmt->fetch(PDO::FETCH_ASSOC);`, il existe une alternative au `PDO::FETCH_ASSOC` qui permet de récupérer des objets
+- Alternative : récupérer le tableau associatif, et instanciez vous-même les objets en sortie...
