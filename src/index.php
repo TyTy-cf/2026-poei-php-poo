@@ -9,6 +9,7 @@
 
     include_once "./Entity/Ventes/Category.php";
     include_once "./Entity/Ventes/Product.php";
+    include_once "./Entity/Ventes/Characteristic.php";
 
     // parent niveau 0
     $book = new Category();
@@ -32,9 +33,24 @@
     $tourism->setLabel("Livres de tourisme et voyage");
     $tourism->setParent($book);
 
-    dump($book);
-    dump($music);
-    dump($tourism);
+    $characteristic = new Characteristic();
+    $characteristic->setId(1);
+    $characteristic->setLabel("Couleur précise");
+    $characteristic->setValue("blanc");
+
+    $characteristic2 = new Characteristic();
+    $characteristic2->setId(2);
+    $characteristic2->setLabel("Garantie");
+    $characteristic2->setValue("Ce bien bénéficie auprès du vendeur d'une garantie légale de conformité d'une durée de deux ans à compter de sa remise au consommateur");
+
+    $product = new Product();
+    $product->setId(1);
+    $product->setLabel("Ecouteurs TW JBL - Wave Buds 2 - Blanc");
+    $product->setBrand("JBL");
+    $product->addCharacteristic($characteristic);
+    $product->addCharacteristic($characteristic2);
+
+dump($product->getCharacteristics());
 
     $brand = new Brands();
     $brand->setId(1);

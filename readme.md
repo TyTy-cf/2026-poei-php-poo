@@ -20,3 +20,7 @@ Toutes les classes doivent :
 - Ne pas avoir de constructeur déclaré (constructeur vide)
 - Tester dans chaque classe (via un `dump` une instance de votre classe)
 
+
+## 2. Traits
+
+Reprendre les classes de la centralish, en ajoutant les traits que vous jugerez nécessaires.
