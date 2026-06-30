@@ -72,6 +72,8 @@
     $clothesCategory->setId(1);
     $clothesCategory->setName("Pull");
     $clothesCategory->setDescription("Les pulls c'est génial même en été hein");
+    $clothesCategory->setCreatedAt(new DateTime());
+    $clothesCategory->setUpdatedAt(new DateTime());
     dump($clothesCategory);
 
     $product = new Product();
@@ -81,6 +83,8 @@
     $product->setDescription("Ça tient chaud pas vrai ?");
     $product->setImgLink("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/6.gif");
     $product->setSize("XL");
+    $product->setCreatedAt(new DateTime());
+    $product->setUpdatedAt(new DateTime());
     $product->setCategory($clothesCategory);
     dump($product);
 
