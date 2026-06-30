@@ -55,4 +55,8 @@ class Sellers{
     {
         $this->phone_number = $phone_number;
     }
+    function getFullname(): string
+    {
+        return $this->first_name . " " . $this->last_name;
+    }
 }

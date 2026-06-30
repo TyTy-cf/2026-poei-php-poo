@@ -62,6 +62,6 @@ dump($listing);
         <title>2026 POEI PHP POO</title>
     </head>
     <body>
-
+        <?= dateFormat($listing->getPublish_at())?>
     </body>
 </html>

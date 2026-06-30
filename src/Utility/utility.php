@@ -6,3 +6,8 @@ function dump(mixed $data): void
     var_dump($data);
     echo '</pre>';
 }
+
+function dateFormat (DateTime $date): string
+{
+    return $date->format('d/m/Y');
+}
