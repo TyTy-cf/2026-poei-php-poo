@@ -1,10 +1,10 @@
 <?php
 
-include_once "../Traits/idTrait.php";
+include_once "tp/Traits/IdTrait.php";
 class Categories
 {
 
-    use idTrait;
+    use IdTrait;
 
 
 }

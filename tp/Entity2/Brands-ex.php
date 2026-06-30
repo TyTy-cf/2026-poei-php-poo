@@ -1,11 +1,11 @@
 <?php
 
-include_once "../Traits/idTrait.php";
+include_once "tp/Traits/IdTrait.php";
 
 class Brands
 {
 
-use idTrait;
+use IdTrait;
 
 }
 
