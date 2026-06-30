@@ -11,7 +11,9 @@ $repository->setPdo($pdo);
 
 $pokemons = $repository->fetchAll();
 
-var_dump($pokemons);
+var_dump($pokemons[0]);
+
+pokemons[0]->getName();
 ?>
 
 
