@@ -3,11 +3,12 @@
 function dump(mixed $data): void
 {
     echo '<pre>';
-    var_dump($data);
+    print_r($data);
     echo '</pre>';
 }
 
-function dateFormat (DateTime $date): string
+
+function dateFormat(DateTime $date, string $format = 'd/m/Y'): string
 {
-    return $date->format('d/m/Y');
+    return $date->format($format);
 }

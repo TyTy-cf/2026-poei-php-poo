@@ -12,7 +12,7 @@ class Products
 
     private float $price;
 
-    private Datetime $publish_at;
+    private string $publish_at;
 
 
     public function getId(): int
@@ -60,12 +60,12 @@ class Products
         $this->price = $price;
     }
 
-    public function getPublishAt(): Datetime
+    public function getPublishAt(): string
     {
         return $this->publish_at;
     }
 
-    public function setPublishAt(Datetime $publish_at): void
+    public function setPublishAt(string $publish_at): void
     {
         $this->publish_at = $publish_at;
     }
