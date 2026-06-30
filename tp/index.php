@@ -9,6 +9,7 @@
     include_once "./Pokemon/Pokemon.php";
     include_once "./Ventes/Product.php";
     include_once "./Ventes/ClothesCategory.php";
+    include_once "./Repository/PokemonRepository.php";
 
     $brand = new Brands();
     $brand->setId(1);
@@ -74,7 +75,7 @@
     $clothesCategory->setDescription("Les pulls c'est génial même en été hein");
     $clothesCategory->setCreatedAt(new DateTime());
     $clothesCategory->setUpdatedAt(new DateTime());
-    dump($clothesCategory);
+    // dump($clothesCategory);
 
     $product = new Product();
     $product->setId(1);
@@ -86,7 +87,11 @@
     $product->setCreatedAt(new DateTime());
     $product->setUpdatedAt(new DateTime());
     $product->setCategory($clothesCategory);
-    dump($product);
+    // dump($product);
+
+    $repository = new PokemonRepository();
+    $pokemons = $repository->fetchAll();
+    dump($pokemons);
 
 ?>
 
