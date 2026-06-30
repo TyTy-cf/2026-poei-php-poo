@@ -4,7 +4,7 @@ namespace Entity;
 
 class Models
 {
-    private int $id;
+    private ?int $id;
     private Brands $brand;
     private Categories $category;
     private string $label;
@@ -15,7 +15,7 @@ class Models
         return $this->id;
     }
 
-    public function setId(int $id): void
+    public function setId(?int $id): void
     {
         $this->id = $id;
     }

@@ -4,7 +4,7 @@ namespace Entity;
 
 class Sellers
 {
-    private int $id;
+    private ?int $id;
     private string $first_name;
     private string $last_name;
     private string $email;
@@ -16,7 +16,7 @@ class Sellers
         return $this->id;
     }
 
-    public function setId(int $id): void
+    public function setId(?int $id): void
     {
         $this->id = $id;
     }

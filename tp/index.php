@@ -1,5 +1,7 @@
 <?php
 
+include_once "../src/Utility/utility.php";
+
 use Entity\{Brands, Categories, Sellers, Models, Listings};
 
 include "Entity/Brands.php";
@@ -7,8 +9,6 @@ include "Entity/Categories.php";
 include "Entity/Sellers.php";
 include "Entity/Models.php";
 include "Entity/Listings.php";
-
-include_once "../src/Utility/utility.php";
 
 $dacia = new Brands();
 $dacia->setId(1);
@@ -44,7 +44,11 @@ $listing->setDescription('Ma dacia logan, pas vieille pas usée, elle est belle,
 $listing->setProduceYear('2024');
 $listing->setMileage(12500);
 $listing->setPrice(1.25);
-$listing->setPublishAt(date("Y-m-d H:i:s"));
+try {
+    $listing->setPublishAt(new DateTime('now'));
+} catch (Exception $e) {
+
+}
 
 dump($dacia);
 dump($berline);

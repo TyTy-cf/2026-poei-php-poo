@@ -4,7 +4,7 @@ namespace Entity;
 
 class Categories
 {
-    private int $id;
+    private ?int $id;
     private string $label;
     private ?string $description;
 
@@ -13,7 +13,7 @@ class Categories
         return $this->id;
     }
 
-    public function setId(int $id): void
+    public function setId(?int $id): void
     {
         $this->id = $id;
     }

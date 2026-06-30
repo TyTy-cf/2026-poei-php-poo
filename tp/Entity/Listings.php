@@ -2,11 +2,11 @@
 
 namespace Entity;
 
-use Cassandra\Date;
+use DateTime;
 
 class Listings
 {
-    private int $id;
+    private ?int $id;
     private Sellers $seller;
     private Models $model;
     private string $title;
@@ -14,14 +14,14 @@ class Listings
     private string $produce_year;
     private int $mileage;
     private float $price;
-    private string $publish_at;
+    private DateTime $publish_at;
 
     public function getId(): int
     {
         return $this->id;
     }
 
-    public function setId(int $id): void
+    public function setId(?int $id): void
     {
         $this->id = $id;
     }
@@ -96,12 +96,12 @@ class Listings
         $this->price = $price;
     }
 
-    public function getPublishAt(): string
+    public function getPublishAt(): DateTime
     {
         return $this->publish_at;
     }
 
-    public function setPublishAt(string $publish_at): void
+    public function setPublishAt(DateTime $publish_at): void
     {
         $this->publish_at = $publish_at;
     }
