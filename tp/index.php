@@ -9,6 +9,7 @@ include_once"../tp/Entity/Sellers.php";
 include_once"../tp/Entity/Categoriez.php";
 include_once"../tp/Entity/Products.php";
 
+    include_once "../src/Utility/utility.php";
 
 ?>
 
@@ -82,9 +83,6 @@ dump($produit);
         <title>2026 POEI PHP POO</title>
     </head>
     <body>
-
-
-
 
     </body>
 </html>
