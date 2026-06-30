@@ -30,7 +30,7 @@ $firstGeneationPokemons = array_slice($pokemons, 0, 151);
               def: <?= $pokemon->getDef() ?> |
               Spa: <?= $pokemon->getSpa() ?> |
               Spd: <?= $pokemon->getSpd() ?> |
-              Spe: <?= $pokemon->getSpe() ?> |
+              Spe: <?= $pokemon->getSpe() ?>
             </p>
           </div>
         </div>

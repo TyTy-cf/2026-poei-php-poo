@@ -17,13 +17,13 @@ class PokemonRepository
     return $stmt->fetchAll(PDO::FETCH_CLASS, "Pokemon");
   }
 
-  public function fetchById(int $id): ?Pokemon
+  public function fetchById($id): Pokemon
   {
     $sql = "SELECT * FROM pokemon WHERE id = :id";
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute([
       'id' => $id
     ]);
-    return $stmt->fetch(PDO::FETCH_CLASS, "Pokemon");
+    return $stmt->fetchObject("Pokemon");
   }
 }
