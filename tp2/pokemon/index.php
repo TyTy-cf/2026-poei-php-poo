@@ -17,20 +17,12 @@ $firstGeneationPokemons = array_slice($pokemons, 0, 151);
     <div class="col-4 g-3">
       <a href="show.php?pokemon_id=<?= $pokemon_id ?>">
         <div class="card h-100">
-          <img src="<?= $pokemon->getPokemonImage($pokemon_id) ?>" class="card-img-top object-fit-cover" style="height: 20rem; object-position: center 20%;" alt="<?= $pokemon->getName() ?>">
+          <img src="<?= $pokemon->getPokemonImage($pokemon_id) ?>" class="img-fluid card-img-top object-fit-cover" style="height: 20rem; object-position: center 20%;" alt="<?= $pokemon->getName() ?>">
           <a class="delete-btn" href="delete.php?pokemon_id=<?= $pokemon_id ?>">X</a>
           <a class="edit-btn" href="edit.php?pokemon_id=<?= $pokemon_id ?>">Edit</a>
 
           <div class="card-body">
-            <h5 class="card-title"><?= $pokemon->getName() ?></h5>
-            <p class="card-text">Height: <?= $pokemon->getHeight() ?> | Weight: <?= $pokemon->getWeight() ?></p>
-            <p class="card-text">
-              hp: <?= $pokemon->getHp() ?> |
-              atk: <?= $pokemon->getAtk() ?> |
-              def: <?= $pokemon->getDef() ?> |
-              Spa: <?= $pokemon->getSpa() ?> |
-              Spd: <?= $pokemon->getSpd() ?> |
-              Spe: <?= $pokemon->getSpe() ?>
+            <h2 class="card-title text-center"><?= $pokemon->getName() ?></h2>
             </p>
           </div>
         </div>

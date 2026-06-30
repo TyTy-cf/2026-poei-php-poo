@@ -19,8 +19,6 @@ class Pokemon
   private string $name_api;
   private int $is_default;
 
-
-
   /**
    * Get the value of id
    */
