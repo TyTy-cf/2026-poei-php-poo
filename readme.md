@@ -47,5 +47,20 @@ $pdo = new PDO(
 - `fetchById`: Récupère un `pokemon` en passant son id
 - `deleteById`: Supprime un `pokemon` en passant son id
 
+<br>
+
 - Astuce : `$stmt->fetch(PDO::FETCH_ASSOC);`, il existe une alternative au `PDO::FETCH_ASSOC` qui permet de récupérer des objets
-- Alternative : récupérer le tableau associatif, et instanciez vous-même les objets en sortie...
+- Alternative (peut-être plus intéressante pour pratquer l'objet) : récupérer le tableau associatif, et instanciez vous-même les objets en sortie...
+
+<br>
+- Résultat attendu :
+
+```php
+$repository = new PokemonRepository();
+
+/** @var array<Pokemon> $pokemons */
+$pokemons = $repository->fetchAll();
+
+/** @var Pokemon $pokemon */
+$pokemon = $repository->fetchById(473);
+```
