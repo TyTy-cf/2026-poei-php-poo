@@ -339,16 +339,11 @@ class Pokemon
 
   public function deleteById()
   {
-    global $pdo;
-    $sql = "DELETE FROM pokemon WHERE id = :id";
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindValue(':id', $this->getId(), PDO::PARAM_INT);
-    return $stmt->execute();
+    return $id;
   }
 
-  public function editById($id)
+  public function editById()
   {
-    global $pdo;
     return $id;
   }
 }
