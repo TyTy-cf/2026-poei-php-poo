@@ -43,8 +43,8 @@ $listing->setModel($model);
 $listing->setTitle("listings title");
 $listing->setDescription("listings description");
 $listing->setProduceYear("listings produce year");
-$listing->setMileage("1");
-$listing->setPrice("1");
+$listing->setMileage("111111");
+$listing->setPrice("1111.11");
 $listing->setPublishAt(new DateTime());
 dump($listing);
 
