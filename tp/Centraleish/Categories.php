@@ -1,13 +1,13 @@
 <?php
 
 include_once "./Traits/Common.php";
-include_once "./Traits/Car.php";
+include_once "./Traits/Denomination.php";
 
 class Categories
 {
 
     use Common;
-    use Car;
+    use Denomination;
     
 }
 

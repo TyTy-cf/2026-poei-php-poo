@@ -1,6 +1,6 @@
 <?php
 
-trait Car
+trait Denomination
 {
     private string $label;
 
