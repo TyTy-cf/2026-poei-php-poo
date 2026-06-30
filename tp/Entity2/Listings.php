@@ -1,7 +1,7 @@
 <?php
 
-include_once "../Entity2/Brands-ex.php";
-include_once "../Entity2/Categories.php";
+include_once "Brands-ex.php";
+include_once "Categories.php";
 
 
 class Listings

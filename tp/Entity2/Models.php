@@ -1,13 +1,12 @@
 <?php
 
-include_once "../Entity2/Brands-ex.php";
-include_once "../Entity2/Categories.php";
-include_once "../Traits/idTrait.php";
+include_once "Brands-ex.php";
+include_once "Categories.php";
 
 class Models
 {
 
-    use idTrait;
+    use IdTrait;
 
     private Brands $brand;
 

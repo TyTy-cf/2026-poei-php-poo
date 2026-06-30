@@ -1,6 +1,5 @@
 <?php
 
-include_once "../Traits/NameTrait.php";
 class Sellers
 {
     private int $id;

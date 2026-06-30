@@ -1,15 +1,13 @@
 <?php
 
 include_once "../src/Utility/utility.php";
-include_once "../tp/Entity/Brands-ex.php";
-include_once "../tp/Entity/Categories.php";
-include_once "../tp/Entity/Models.php";
-include_once "../tp/Entity/Sellers.php";
-include_once "../tp/Entity/Listings.php";
-include_once "../tp/Entity/Product.php";
-include_once "../tp/Entity/Cate.php";
-
-
+include_once "Entity/Brands-ex.php";
+include_once "Entity/Categories.php";
+include_once "Entity/Models.php";
+include_once "Entity/Sellers.php";
+include_once "Entity/Listings.php";
+include_once "Entity/Product.php";
+include_once "Entity/Cate.php";
 
 
 $brand = new Brands();

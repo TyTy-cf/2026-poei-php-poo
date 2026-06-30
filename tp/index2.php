@@ -1,14 +1,14 @@
 <?php
 
 include_once "../src/Utility/utility.php";
-include_once "../tp/Entity2/Brands-ex.php";
-include_once "../tp/Entity2/Categories.php";
-include_once "../tp/Entity2/Models.php";
-include_once "../tp/Entity2/Sellers.php";
-include_once "../tp/Entity2/Listings.php";
-include_once "../tp/Traits/idTrait.php";
-include_once "../tp/Traits/NameTrait.php";
 
+include_once "Traits/IdTrait.php";
+include_once "Traits/NameTrait.php";
+include_once "Entity2/Brands-ex.php";
+include_once "Entity2/Categories.php";
+include_once "Entity2/Models.php";
+include_once "Entity2/Sellers.php";
+include_once "Entity2/Listings.php";
 
 $brand = new Brands();
 $brand->setId(1);
