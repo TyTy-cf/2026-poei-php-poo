@@ -6,7 +6,7 @@ class Product
 
     private string $name; // Nom du vêtement
 
-    private float $price; // Prix TTC
+    private int $price; // Prix TTC
 
     private string $description; // Description du vêtement
 
@@ -30,7 +30,7 @@ class Product
         return $this->name;
     }
 
-    public function getPrice(): ?float {
+    public function getPrice(): ?int {
         return $this->price;
     }
 
@@ -68,7 +68,7 @@ class Product
         $this->name = $name;
     }
 
-    public function setPrice(float $price): void {
+    public function setPrice(int $price): void {
         $this->price = $price;
     }
 

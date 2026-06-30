@@ -7,18 +7,20 @@
     include_once "./Entity/Models.php";
     include_once "./Entity/Sellers.php";
     include_once "./Entity/Pokemon.php";
+    include_once "./Entity/Product.php";
+    include_once "./Entity/ClothesCategory.php";
 
     $brand = new Brands();
     $brand->setId(1);
     $brand->setLabel("Test");
     $brand->setDescription("Bonjour");
-    dump($brand);
+    // dump($brand);
 
     $category = new Categories();
     $category->setId(1);
     $category->setLabel("Salut");
     $category->setDescription("On m'entend ?");
-    dump($category);
+    // dump($category);
 
     $model = new Models();
     $model->setId(1);
@@ -26,7 +28,7 @@
     $model->setCategory($category);
     $model->setLabel("Clio");
     $model->setDescription("Ça roule.. C'est bien non ?");
-    dump($model);
+    // dump($model);
 
     $seller = new Sellers();
     $seller->setId(1);
@@ -35,7 +37,7 @@
     $seller->setEmail("emmanuel@macron.fr");
     $seller->setLocation("Élysée");
     $seller->setPhoneNumber("+333630");
-    dump($seller);
+    // dump($seller);
 
     $listing = new Listings();
     $listing->setId(1);
@@ -46,7 +48,7 @@
     $listing->setProduceYear("1912");
     $listing->setMileAge(101010);
     $listing->setPrice(6789,01);
-    dump($listing);
+    // dump($listing);
 
     $pokemon = new Pokemon();
     $pokemon->setId(1);
@@ -64,7 +66,22 @@
     $pokemon->setIdApi("1");
     $pokemon->setNameApi("Snorlax");
     $pokemon->setIsDefault(1);
-    dump($pokemon);
+    // dump($pokemon);
+
+    $clothesCategory = new ClothesCategory();
+    $clothesCategory->setId(1);
+    $clothesCategory->setName("Pull");
+    $clothesCategory->setDescription("Les pulls c'est génial même en été hein");
+    dump($clothesCategory);
+
+    $product = new Product();
+    $product->setId(1);
+    $product->setName("Pull laineux");
+    $product->setPrice(5999);
+    $product->setDescription("Ça tient chaud pas vrai ?");
+    $product->setImgLink("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/6.gif");
+    $product->setSize("XL");
+    $product->setCategory($clothesCategory);
 
 ?>
 
