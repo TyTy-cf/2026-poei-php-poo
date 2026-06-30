@@ -8,7 +8,6 @@ include_once"../tp/Entity/Models.php";
 include_once"../tp/Entity/Sellers.php";
 include_once"../tp/Entity/Categoriez.php";
 include_once"../tp/Entity/Products.php";
-
     include_once "../src/Utility/utility.php";
 
 ?>

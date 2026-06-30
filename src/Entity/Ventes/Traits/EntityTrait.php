@@ -27,4 +27,5 @@ trait EntityTrait
         $this->label = $label;
     }
 
+
 }

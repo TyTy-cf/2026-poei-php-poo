@@ -1,33 +1,18 @@
 <?php
 
+include_once "../tp/Entity/Traits/IdLabelDescriptionTrait.php";
 
 class Models
 {
+    use IdLabelDescriptionTrait;
 
-    private int $id;
-
-    private string $label;
-
-    private string $description;
 
     private Brands $brand;
 
     private Categories $category;
 
-    public function getId() : int
-    {
-        return $this->id;
-    }
 
-    public function getLabel() : string
-    {
-        return $this->label;
-    }
 
-    public function getDescription() : string
-    {
-        return $this->description;
-    }
 
     public function getBrand(): Brands
     {
@@ -39,20 +24,7 @@ class Models
         return $this->category;
     }
 
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
 
-    public function setLabel($label)
-    {
-        $this->label = $label;
-    }
-
-    public function setDescription($description)
-    {
-        $this->description = $description;
-    }
 
     public function setBrand(Brands $brand)
     {
