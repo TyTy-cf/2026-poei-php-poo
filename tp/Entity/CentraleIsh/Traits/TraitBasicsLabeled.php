@@ -2,10 +2,19 @@
 
 namespace CentraleIsh\Traits;
 include_once "TraitBasics.php";
-include_once "TraitLabel.php";
 
 trait TraitBasicsLabeled
 {
     use TraitBasics;
-    use TraitLabel;
+    private string $label;
+
+    public function getLabel(): string
+    {
+        return $this->label;
+    }
+
+    public function setLabel(string $label): void
+    {
+        $this->label = $label;
+    }
 }
