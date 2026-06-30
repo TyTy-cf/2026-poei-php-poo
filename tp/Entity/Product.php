@@ -7,8 +7,8 @@ class Product
     private int $id;
     private string $name;
     private string $description;
-    private string $price;
-    private string $rate;
+    private float $price;
+    private float $rate;
     private string $image;
 
     private Categories $category;
