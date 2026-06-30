@@ -6,6 +6,7 @@ include_once "./Entity/Categories.php";
 include_once "./Entity/Sellers.php";
 include_once "./Entity/Models.php";
 include_once "./Entity/Listings.php";
+include_once "./Entity/Products.php";
 
 $brand = new Brands();
 $brand->setId(1);
@@ -48,6 +49,12 @@ $listing->setPrice("1111.11");
 $listing->setPublishAt(new DateTime());
 dump($listing);
 
+$product = new Products();
+$product->setId(1);
+$product->setCategory($categorie);
+$product->setLabel("products label");
+$product->setDescription("products description");
+dump($product);
 ?>
 
 <!DOCTYPE html>
