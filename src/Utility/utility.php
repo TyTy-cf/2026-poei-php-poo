@@ -13,3 +13,9 @@ function console_log(mixed $data): void
   echo 'console.log(' . json_encode($data) . ');';
   echo '</script>';
 }
+
+
+function dateFormat(DateTime $date, string $format = 'd/m/Y'): string
+{
+    return $date->format($format);
+}
