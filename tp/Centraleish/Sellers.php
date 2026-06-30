@@ -1,9 +1,11 @@
 <?php
 
+include_once "./Traits/Common.php";
+
 class Sellers
 {
 
-    private int $id;
+    use Common;
 
     private string $firstName;
 
@@ -16,10 +18,6 @@ class Sellers
     private string $phoneNumber;
 
     // Getters
-
-    public function getId(): ?int {
-        return $this->id;
-    }
 
     public function getFirstName(): ?string {
         return $this->firstName;
@@ -42,11 +40,7 @@ class Sellers
     }
 
     // Setters
-
-    public function setId(int $id): void {
-        $this->id = $id;
-    }
-
+    
     public function setFirstName(string $firstName): void {
         $this->firstName = $firstName;
     }
