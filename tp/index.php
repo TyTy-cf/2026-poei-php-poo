@@ -82,6 +82,7 @@
     $product->setImgLink("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/shiny/6.gif");
     $product->setSize("XL");
     $product->setCategory($clothesCategory);
+    dump($product);
 
 ?>
 
