@@ -7,7 +7,7 @@ class Pokemon
     private ?int $id;
     private int $weight;
     private int $height;
-    private int $base_experience;
+    private int $baseExperience;
     private int $hp;
     private int $atk;
     private int $def;
@@ -16,9 +16,9 @@ class Pokemon
     private int $spe;
     private string $name;
     private string $slug;
-    private string $id_api;
-    private string $name_api;
-    private bool $is_default;
+    private string $idApi;
+    private string $nameApi;
+    private bool $isDefault;
 
     public function getId(): int
     {
@@ -52,12 +52,12 @@ class Pokemon
 
     public function getBaseExperience(): int
     {
-        return $this->base_experience;
+        return $this->baseExperience;
     }
 
-    public function setBaseExperience(int $base_experience): void
+    public function setBaseExperience(int $baseExperience): void
     {
-        $this->base_experience = $base_experience;
+        $this->baseExperience = $baseExperience;
     }
 
     public function getHp(): int
@@ -142,31 +142,31 @@ class Pokemon
 
     public function getIdApi(): string
     {
-        return $this->id_api;
+        return $this->idApi;
     }
 
-    public function setIdApi(string $id_api): void
+    public function setIdApi(string $idApi): void
     {
-        $this->id_api = $id_api;
+        $this->idApi = $idApi;
     }
 
     public function getNameApi(): string
     {
-        return $this->name_api;
+        return $this->nameApi;
     }
 
-    public function setNameApi(string $name_api): void
+    public function setNameApi(string $nameApi): void
     {
-        $this->name_api = $name_api;
+        $this->nameApi = $nameApi;
     }
 
     public function isIsDefault(): bool
     {
-        return $this->is_default;
+        return $this->isDefault;
     }
 
-    public function setIsDefault(bool $is_default): void
+    public function setIsDefault(bool $isDefault): void
     {
-        $this->is_default = $is_default;
+        $this->isDefault = $isDefault;
     }
 }

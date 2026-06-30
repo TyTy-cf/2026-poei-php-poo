@@ -11,10 +11,10 @@ class Listings
     private Models $model;
     private string $title;
     private ?string $description;
-    private string $produce_year;
+    private string $produceYear;
     private int $mileage;
     private float $price;
-    private DateTime $publish_at;
+    private DateTime $publishAt;
 
     public function getId(): int
     {
@@ -68,12 +68,12 @@ class Listings
 
     public function getProduceYear(): string
     {
-        return $this->produce_year;
+        return $this->produceYear;
     }
 
-    public function setProduceYear(string $produce_year): void
+    public function setProduceYear(string $produceYear): void
     {
-        $this->produce_year = $produce_year;
+        $this->produceYear = $produceYear;
     }
 
     public function getMileage(): int
@@ -98,11 +98,11 @@ class Listings
 
     public function getPublishAt(): DateTime
     {
-        return $this->publish_at;
+        return $this->publishAt;
     }
 
-    public function setPublishAt(DateTime $publish_at): void
+    public function setPublishAt(DateTime $publishAt): void
     {
-        $this->publish_at = $publish_at;
+        $this->publishAt = $publishAt;
     }
 }

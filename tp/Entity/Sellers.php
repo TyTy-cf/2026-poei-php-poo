@@ -5,11 +5,11 @@ namespace Entity;
 class Sellers
 {
     private ?int $id;
-    private string $first_name;
-    private string $last_name;
+    private string $firstName;
+    private string $lastName;
     private string $email;
     private string $location;
-    private string $phone_number;
+    private string $phoneNumber;
 
     public function getId(): int
     {
@@ -23,22 +23,22 @@ class Sellers
 
     public function getFirstName(): string
     {
-        return $this->first_name;
+        return $this->firstName;
     }
 
-    public function setFirstName(string $first_name): void
+    public function setFirstName(string $firstName): void
     {
-        $this->first_name = $first_name;
+        $this->firstName = $firstName;
     }
 
     public function getLastName(): string
     {
-        return $this->last_name;
+        return $this->lastName;
     }
 
-    public function setLastName(string $last_name): void
+    public function setLastName(string $lastName): void
     {
-        $this->last_name = $last_name;
+        $this->lastName = $lastName;
     }
 
     public function getEmail(): string
@@ -63,12 +63,12 @@ class Sellers
 
     public function getPhoneNumber(): string
     {
-        return $this->phone_number;
+        return $this->phoneNumber;
     }
 
-    public function setPhoneNumber(string $phone_number): void
+    public function setPhoneNumber(string $phoneNumber): void
     {
-        $this->phone_number = $phone_number;
+        $this->phoneNumber = $phoneNumber;
     }
 
 
