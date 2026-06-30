@@ -1,18 +1,28 @@
 <?php
 
+
 namespace Entity;
 
 class Product
 {
-    private int $id;
+    private ?int $id = null;
     private string $name;
     private string $description;
     private float $price;
     private float $rate;
     private string $image;
-
     private Categories $category;
     private int $quantity;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
 
     public function getName(): string
     {
@@ -21,7 +31,7 @@ class Product
 
     public function setName(string $name): void
     {
-        $this->name = $name;
+        $this->name = trim($name);
     }
 
     public function getDescription(): string
@@ -31,26 +41,34 @@ class Product
 
     public function setDescription(string $description): void
     {
-        $this->description = $description;
+        $this->description = trim($description);
     }
 
-    public function getPrice(): string
+    public function getPrice(): float
     {
         return $this->price;
     }
 
-    public function setPrice(string $price): void
+    public function setPrice(float $price): void
     {
+        if ($price < 0) {
+            throw new \InvalidArgumentException('Le prix ne peut pas être négatif.');
+        }
+
         $this->price = $price;
     }
 
-    public function getRate(): string
+    public function getRate(): float
     {
         return $this->rate;
     }
 
-    public function setRate(string $rate): void
+    public function setRate(float $rate): void
     {
+        if ($rate < 0 || $rate > 5) {
+            throw new \InvalidArgumentException('La note doit être entre 0 et 5.');
+        }
+
         $this->rate = $rate;
     }
 
@@ -61,7 +79,7 @@ class Product
 
     public function setImage(string $image): void
     {
-        $this->image = $image;
+        $this->image = trim($image);
     }
 
     public function getCategory(): Categories
@@ -81,17 +99,10 @@ class Product
 
     public function setQuantity(int $quantity): void
     {
+        if ($quantity < 0) {
+            throw new \InvalidArgumentException('La quantité ne peut pas être négative.');
+        }
+
         $this->quantity = $quantity;
     }
-
-    public function getId(): int
-    {
-        return $this->id;
-    }
-
-    public function setId(int $id): void
-    {
-        $this->id = $id;
-    }
-
 }
