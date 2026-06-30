@@ -91,7 +91,8 @@
 
     $repository = new PokemonRepository();
     $pokemons = $repository->fetchAll();
-    dump($pokemons);
+    
+    $firstGen = array_slice($pokemons, 0, 151);
 
 ?>
 
@@ -102,6 +103,9 @@
         <title>2026 POEI PHP POO</title>
     </head>
     <body>
-
+        <?php foreach ($firstGen as $pok): ?>
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/<?= $pok->getId(); ?>.gif" alt="Image of <?= $pok->getName(); ?>">
+            <p><?= $pok->getName(); ?></p>
+        <?php endforeach; ?>
     </body>
 </html>
