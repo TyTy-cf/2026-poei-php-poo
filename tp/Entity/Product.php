@@ -18,7 +18,7 @@ class Product
 
     private DateTime $updatedAt; // Date de mise à jour
 
-    private ClothesCategories $category; // Catégorie de vêtement
+    private ClothesCategory $category; // Catégorie de vêtement
 
     // Getters
 
