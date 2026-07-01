@@ -1,8 +1,6 @@
 <?php
 
-include_once "../Entity/Pokemons/Pokemons.php";
 include_once "header.php";
-include_once "../Repository/PokemonRepository.php";
 
 // ?offset=151&limit=100
 
