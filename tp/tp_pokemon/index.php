@@ -25,7 +25,7 @@
 
 $repository = new Pokemons();
 
-$pokemons = $repository->fetchAll();
+$pokemons = $repository->fetchAll("db_pokemon","pokemon");
 
 //$pokemons2 = $repository->fetchById(0,151);
 
