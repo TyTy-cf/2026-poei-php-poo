@@ -16,47 +16,6 @@ class PokemonRepository extends AbstractRepository
         parent::__construct('db_pokemons', 'pokemon');
     }
 
-    /**
-     * @return array<Pokemon>
-     */
-
-    public function fetchAll(): array
-    {
-        return parent::fetchAll();
-    }
-
-    /**
-     * @return array<Pokemon>
-     */
-    public function fetchBy(int $offset, int $limit): array
-    {
-        $sql = "SELECT id, weight, height, base_experience as baseExperience, hp, atk, def, spa, spd, spe, name, slug, id_api as idApi, name_api as nameApi, is_default as isDefault FROM pokemon LIMIT :offset, :limit";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([
-            'offset' => $offset,
-            'limit' => $limit
-        ]);
-        $pokemons = $stmt->fetchAll(PDO::FETCH_CLASS, 'Class\Pokemon');
-        return $pokemons;
-    }
-    public function fetchById(int $id): Pokemon
-    {
-        $sql = "SELECT id, weight, height, base_experience as baseExperience, hp, atk, def, spa, spd, spe, name, slug, id_api as idApi, name_api as nameApi, is_default as isDefault FROM pokemon WHERE id = :id";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([
-            'id' => $id
-        ]);
-        $pokemon = $stmt->fetchObject('Class\Pokemon');
-        return $pokemon;
-    }
-    public function deleteById(int $id): void
-    {
-        $sql = "DELETE FROM pokemon WHERE id = :id";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([
-            'id' => $id
-        ]);
-    }
     public function add(Pokemon $pokemon): void
     {
         $sql = "INSERT INTO pokemon(weight, height, base_experience, hp, atk, def, spa, spd, spe, name, slug, id_api, name_api, is_default) VALUES (:weight, :height, :base_experience, :hp, :atk, :def, :spa, :spd, :spe, :name, :slug, :id_api, :name_api, :is_default)" ;
