@@ -19,12 +19,12 @@ $poster_url = $pokemon->getPokemonImage($id);
   <div class="form-group">
 
     <label for="poster_url">Poster Url:</label>
-    <input class="form-control" id="poster_url" type="poster_url" name="poster_url" value="<?= $movie['poster_url'] ?>">
+    <input class="form-control" id="poster_url" type="poster_url" name="poster_url" value="<?= "ede" ?>">
   </div>
   <div class="form-group">
 
     <label for="description">Movie Description:</label>
-    <textarea class="form-control" id="description" name="description" rows="3"><?= $movie['description'] ?></textarea>
+    <textarea class="form-control" id="description" name="description" rows="3"><?="dede" ?></textarea>
   </div>
 
   <button class="btn btn-primary" type="submit">submit</button>

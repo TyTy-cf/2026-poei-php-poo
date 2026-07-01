@@ -1,53 +1,11 @@
 <?php
 
-class PokemonRepository
-{
-  private PDO $pdo;
+include_once __DIR__ . "/AbstractRepository.php";
 
+class PokemonRepository extends AbstractRepository
+{
   public function __construct()
   {
-    $this->pdo = new PDO("mysql:host=mariadb;dbname=db_pokemons;port=3306", "root", "root");
-  }
-
-  public function fetchAll(): array
-  {
-    $sql = "SELECT * FROM pokemon";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_CLASS, "Pokemon");
-  }
-
-  public function fetchById($id): Pokemon
-  {
-    $sql = "SELECT * FROM pokemon WHERE id = :id";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->execute([
-      'id' => $id
-    ]);
-    return $stmt->fetchObject("Pokemon");
-  }
-
-  public function deleteById($id)
-  {
-    $sql = "DELETE FROM pokemon WHERE id = :id";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->execute([
-      'id' => $id
-    ]);
-  }
-
-  public function editById($id)
-  {
-    echo "edit.php?pokemon_id=" . $this->$id;
-  }
-
-  public function fetchBy($offset, $limit): array
-  {
-    $sql = "SELECT * FROM pokemon LIMIT :offset, :limit;";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
-    $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_CLASS, "Pokemon");
+    parent::__construct("db_pokemons", "pokemon");
   }
 }
