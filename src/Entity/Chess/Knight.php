@@ -1,6 +1,6 @@
 <?php
 
-class Knight extends Piece
+class Knight extends AbstractPiece
 {
 
     public function __construct(string $color)
@@ -8,9 +8,8 @@ class Knight extends Piece
         parent::__construct(3, $color);
     }
 
-    public function move(): void {
-        parent::move();
+    public function move(): void
+    {
         echo "move de Knight";
     }
-
 }

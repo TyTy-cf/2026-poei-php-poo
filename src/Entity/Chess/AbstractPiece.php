@@ -1,9 +1,13 @@
 <?php
 
-class Piece
+abstract class AbstractPiece
 {
 
     protected static int $ID = 0;
+    protected const int MAX_UNLIMITED = 64;
+    protected const int DIR_HORIZONTAL = 0;
+    protected const int DIR_VERTICAL = 1;
+    protected const int DIR_BOTH_STRAIGHT = 2;
 
     protected int $id;
 
@@ -47,8 +51,23 @@ class Piece
         return $this->id;
     }
 
-    public function move(): void {
-        echo "move de Piece";
+    protected function checkDiagonal(int $max): void
+    {
+        echo "<br>";
+        echo "checkDiagonal on " . $max;
     }
+
+    protected function checkStraight(int $max, int $dir): void
+    {
+        echo "<br>";
+        echo "checkStraight on " . $max . " for dir " . $dir;
+        if ($dir === AbstractPiece::DIR_BOTH_STRAIGHT) {
+            // code for both
+        } else if ($dir === AbstractPiece::DIR_HORIZONTAL) {
+            // code for HORIZONTAL
+        }
+    }
+
+    abstract public function move(): void;
 
 }
