@@ -40,4 +40,14 @@ class PokemonRepository
   {
     echo "edit.php?pokemon_id=" . $this->$id;
   }
+
+  public function fetchBy($offset, $limit): array
+  {
+    $sql = "SELECT * FROM pokemon LIMIT :offset, :limit;";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
+    $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_CLASS, "Pokemon");
+  }
 }
