@@ -8,6 +8,7 @@ $id = $_GET["pokemon_id"];
 $repository = new PokemonRepository();
 $pokemon = $repository->fetchById($id);
 
+print_r($pokemon);
 ?>
 
 

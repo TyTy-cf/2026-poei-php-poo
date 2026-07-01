@@ -47,27 +47,31 @@ abstract class AbstractRepository
 
   public function findBy(array $fields, int $offset, int $limit): array
   {
-
+    $bindvalues = [];
     $sql = "SELECT * FROM " . strtolower($this->tableName) . " WHERE ";
 
-
-
-    foreach ($fields as $field => $value) {
-      $sql .= $field . " = " . $value . " AND ";
+    if ($fields) {
+      foreach ($fields as $field => $value) {
+        $sql .= $field . " = :" . $field . " AND ";
+        $bindvalues[$field] = $value;
+      }
     }
 
     $sql = rtrim($sql, "AND ");
     $sql .= " LIMIT :offset, :limit;";
-
+    $bindvalues['offset'] = $offset;
+    $bindvalues['limit'] = $limit;
     $stmt = $this->pdo->prepare($sql);
-    $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
-    $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
 
+    foreach ($bindvalues as $key => $value) {
+      $type = is_int($value) ? PDO::PARAM_INT : PDO::PARAM_STR;
+      $stmt->bindValue(':' . $key, $value, $type);
+    }
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_CLASS, $this->tableName);
   }
 
-  public function deleteById(int $id)
+  public function deleteById($id)
   {
     $sql = "DELETE FROM {$this->tableName} WHERE id = :id";
     $stmt = $this->pdo->prepare($sql);

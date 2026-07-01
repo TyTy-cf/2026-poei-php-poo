@@ -5,7 +5,7 @@ include __DIR__ . "/header.php";
 include __DIR__ . "/Pokemon.php";
 
 $repository = new PokemonRepository();
-$pokemons = $repository->findBy(["atk" => 62], 0, 1000);
+$pokemons = $repository->findBy(["atk" => 110], 0, 1000);
 
 
 ?>
