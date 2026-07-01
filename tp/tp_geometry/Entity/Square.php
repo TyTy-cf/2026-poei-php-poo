@@ -1,8 +1,6 @@
 <?php
 
-namespace Tp\tp_geometry\Entity;
-
-class quare extends AbstractForm
+class Square extends AbstractForm
 {
     private float $width;
 

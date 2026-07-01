@@ -1,7 +1,5 @@
 <?php
 
-namespace Tp\tp_geometry\Entity;
-
 class Circle extends AbstractForm
 {
     private float $radius;

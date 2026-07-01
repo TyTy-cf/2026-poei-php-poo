@@ -1,7 +1,5 @@
 <?php
 
-namespace Tp\tp_geometry\Entity;
-
 class Rectangle extends AbstractForm
 {
     private float $width;

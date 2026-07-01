@@ -1,7 +1,5 @@
 <?php
 
-use Tp\tp_geometry\Entity\Square;
-
 include_once "Entity/AbstractForm.php";
 include_once "Entity/Square.php";
 
