@@ -167,4 +167,9 @@ class Pokemon
     {
         $this->isDefault = $isDefault;
     }
+
+    function getImage(): string
+    {
+        return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{$this->idApi}.png";
+    }
 }
