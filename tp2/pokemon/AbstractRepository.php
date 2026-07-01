@@ -4,6 +4,7 @@ abstract class AbstractRepository
 {
   protected PDO $pdo;
   protected string $tableName;
+  protected array $fields;
 
   public function __construct(string $dbName, string $tableName)
   {
@@ -13,37 +14,62 @@ abstract class AbstractRepository
 
   public function fetchAll(): array
   {
-    $sql = "SELECT * FROM " . $this->tableName . ";";
+    $sql = "SELECT * FROM ?;";
     $stmt = $this->pdo->prepare($sql);
-    $stmt->execute();
+    $stmt->execute([
+      $this->tableName
+    ]);
 
-    return $stmt->fetchAll(PDO::FETCH_CLASS, "Pokemon");
+    return $stmt->fetchAll(PDO::FETCH_CLASS, $this->tableName);
   }
 
-  public function fetchById(int $id): ?object
+  public function fetchById($id)
   {
-    $sql = "SELECT * FROM " . $this->tableName . " WHERE id = :id;";
+    $sql = "SELECT * FROM " . strtolower($this->tableName) . " WHERE id = :id;";
 
     $stmt = $this->pdo->prepare($sql);
-    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-    $stmt->execute();
+    $stmt->execute([
+      'id' => intval($id)
+    ]);
 
-    return $stmt->fetchObject("Pokemon");
+    return $stmt->fetchObject($this->tableName);
   }
 
   public function fetchBy(int $offset, int $limit): array
   {
-    $sql = "SELECT * FROM " . $this->tableName . " LIMIT :offset, :limit;";
+    $sql = "SELECT * FROM " . strtolower($this->tableName) . " LIMIT :offset, :limit;";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
     $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
     $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_CLASS, "Pokemon");
+    return $stmt->fetchAll(PDO::FETCH_CLASS, $this->tableName);
+  }
+
+  public function findBy(array $fields, int $offset, int $limit): array
+  {
+
+    $sql = "SELECT * FROM " . strtolower($this->tableName) . " WHERE ";
+
+
+
+    foreach ($fields as $field => $value) {
+      $sql .= $field . " = " . $value . " AND ";
+    }
+
+    $sql = rtrim($sql, "AND ");
+    $sql .= " LIMIT :offset, :limit;";
+
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
+    $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_CLASS, $this->tableName);
   }
 
   public function deleteById(int $id)
   {
-    $sql = "DELETE FROM " . $this->tableName . " WHERE id = :id";
+    $sql = "DELETE FROM {$this->tableName} WHERE id = :id";
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute([
       'id' => $id

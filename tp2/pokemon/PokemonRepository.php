@@ -6,6 +6,6 @@ class PokemonRepository extends AbstractRepository
 {
   public function __construct()
   {
-    parent::__construct("db_pokemons", "pokemon");
+    parent::__construct("db_pokemons", Pokemon::class);
   }
 }
