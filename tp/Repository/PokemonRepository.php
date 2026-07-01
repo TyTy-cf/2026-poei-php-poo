@@ -5,50 +5,88 @@ class PokemonRepository
 
     private PDO $pdo;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->pdo = new PDO(
-            'mysql:host=mariadb;dbname=db_pokemons;charset=utf8;port=3306',
-            'root',
-            'root'
+            "mysql:host=mariadb;dbname=db_pokemons;port=3306",
+            "root",
+            "root"
         );
     }
 
-    public function fetchAll(): array {
-        $sql = "SELECT * FROM pokemon";
+    /**
+     * @return array<Pokemon>
+     */
+    public function fetchAll(): array
+    {
+        $sql = "SELECT * FROM pokemon;";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
-
         $assocArray = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         $pokemons = [];
-        foreach($assocArray as $row) {
+        foreach ($assocArray as $row) {
             $pokemons[] = $this->createPokemonByAssocArray($row);
         }
 
         return $pokemons;
     }
 
-    private function  createPokemonByAssocArray(array $row): Pokemon {
+    /**
+     * @return array<Pokemon>
+     */
+    public function fetchBy(int $offset, int $limit): array
+    {
+        $sql = "SELECT * FROM pokemon LIMIT ?, ?;";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(1, $offset, PDO::PARAM_INT);
+        $stmt->bindValue(2, $limit, PDO::PARAM_INT);
+        $stmt->execute();
+        $assocArray = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $pokemons = [];
+        foreach ($assocArray as $row) {
+            $pokemons[] = $this->createPokemonByAssocArray($row);
+        }
+
+        return $pokemons;
+    }
+
+    /**
+     * @return Pokemon
+     */
+    public function fetchById(int $id): Pokemon
+    {
+        $sql = "SELECT * FROM pokemon WHERE id = :id;";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute(["id" => $id]);
+        $assocArray = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $this->createPokemonByAssocArray($assocArray);
+    }
+
+    /**
+     * @param array $array associative array reprensenting a DB row of Pokemon
+     * @return Pokemon
+     */
+    private function createPokemonByAssocArray(array $array): Pokemon
+    {
         $pokemon = new Pokemon();
-
-        $pokemon->setId($row['id']);
-        $pokemon->setWeight($row['weight']);
-        $pokemon->setHeight($row['height']);
-        $pokemon->setBaseExperience($row['base_experience']);
-        $pokemon->setHp($row['hp']);
-        $pokemon->setAtk($row['atk']);
-        $pokemon->setDef($row['def']);
-        $pokemon->setSpa($row['spa']);
-        $pokemon->setSpd($row['spd']);
-        $pokemon->setSpe($row['spe']);
-        $pokemon->setName($row['name']);
-        $pokemon->setSlug($row['slug']);
-        $pokemon->setIdApi($row['id_api']);
-        $pokemon->setNameApi($row['name_api']);
-        $pokemon->setIsDefault($row['is_default']);
-
+        $pokemon->setId((int)$array['id']);
+        $pokemon->setWeight((int)$array['weight']);
+        $pokemon->setHeight((int)$array['height']);
+        $pokemon->setBaseExperience((int)$array['base_experience']);
+        $pokemon->setHp((int) $array['hp']);
+        $pokemon->setAtk((int) $array['atk']);
+        $pokemon->setDef((int) $array['def']);
+        $pokemon->setSpa((int) $array['spa']);
+        $pokemon->setSpd((int) $array['spd']);
+        $pokemon->setSpe((int) $array['spe']);
+        $pokemon->setName($array['name']);
+        $pokemon->setSlug($array['slug']);
+        $pokemon->setIdApi($array['id_api']);
+        $pokemon->setNameApi($array['name_api']);
+        $pokemon->setIsDefault((bool)$array['is_default']);
         return $pokemon;
     }
-}
 
-?>
+}

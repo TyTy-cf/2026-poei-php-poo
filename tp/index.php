@@ -1,15 +1,6 @@
 <?php
 
-    include_once "../src/Utility/utility.php";
-    include_once "./Centraleish/Brands.php";
-    include_once "./Centraleish/Categories.php";
-    include_once "./Centraleish/Listings.php";
-    include_once "./Centraleish/Models.php";
-    include_once "./Centraleish/Sellers.php";
-    include_once "./Pokemon/Pokemon.php";
-    include_once "./Ventes/Product.php";
-    include_once "./Ventes/ClothesCategory.php";
-    include_once "./Repository/PokemonRepository.php";
+    include "include.php";
 
     $brand = new Brands();
     $brand->setId(1);
@@ -91,8 +82,19 @@
 
     $repository = new PokemonRepository();
     $pokemons = $repository->fetchAll();
-    
-    $firstGen = array_slice($pokemons, 0, 151);
+    // dump($pokemons);
+
+    $square = new Square(7.0);
+    dump($square->getArea());
+    dump($square);
+
+    $rectangle = new Rectangle(7.0, 4.0);
+    dump($rectangle->getArea());
+    dump($rectangle);
+
+    $circle = new Circle(5);
+    dump($circle->getArea());
+    dump($circle);
 
 ?>
 
@@ -103,9 +105,6 @@
         <title>2026 POEI PHP POO</title>
     </head>
     <body>
-        <?php foreach ($firstGen as $pok): ?>
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/<?= $pok->getId(); ?>.gif" alt="Image of <?= $pok->getName(); ?>">
-            <p><?= $pok->getName(); ?></p>
-        <?php endforeach; ?>
+        
     </body>
 </html>
