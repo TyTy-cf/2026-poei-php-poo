@@ -30,7 +30,7 @@ $pokemons = $repository->fetchAll();
 
 $pokemons2 = $repository->fetchById(0,151);
 
-var_dump($pokemons2);
+//var_dump($pokemons2);
 
 //foreach ($pokemons as $pokemon) {
 //    var_dump($pokemon);
@@ -54,7 +54,7 @@ var_dump($pokemons2);
 <body>
 <div class="container">
     <div class="row row-gap-4">
-        <?php foreach ($pokemons2 as $pokemon) : ?>
+        <?php foreach ($pokemons as $pokemon) : ?>
         <div class="col-md-4 d-flex align-items-stretch">
             <div class="card card-body">
                 <h2><?= $pokemon->name; ?></h2>
