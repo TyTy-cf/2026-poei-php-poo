@@ -1,5 +1,7 @@
 <?php
 
+use Tp\tp_pokemon\Entity\PokemonRepository;
+
 include_once "../Entity/Pokemons/Pokemons.php";
 include_once "header.php";
 include_once "../Repository/PokemonRepository.php";

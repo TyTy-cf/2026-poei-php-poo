@@ -56,7 +56,7 @@ $pdo = new PDO(
 - Résultat attendu :
 
 ```php
-$repository = new PokemonRepository();
+use Tp\tp_pokemon\Entity\PokemonRepository;$repository = new PokemonRepository();
 
 /** @var array<Pokemon> $pokemons */
 $pokemons = $repository->fetchAll();

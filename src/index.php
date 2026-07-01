@@ -1,6 +1,12 @@
 <?php
 
-    include_once "./Utility/utility.php";
+use Tp\tp_centraleish\Entity\Brands;
+use Tp\tp_centraleish\Entity\Categories;
+use Tp\tp_centraleish\Entity\Listings;
+use Tp\tp_centraleish\Entity\Models;
+use Tp\tp_centraleish\Entity\Sellers;
+
+include_once "./Utility/utility.php";
     include_once "./Entity/CentraleIsh/Brands.php";
     include_once "./Entity/CentraleIsh/Models.php";
     include_once "./Entity/CentraleIsh/Categories.php";

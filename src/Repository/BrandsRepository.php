@@ -1,5 +1,7 @@
 <?php
 
+use Tp\tp_centraleish\Entity\Brands;
+
 include_once "../Entity/CentraleIsh/Brands.php";
 include_once "AbstractRepository.php";
 

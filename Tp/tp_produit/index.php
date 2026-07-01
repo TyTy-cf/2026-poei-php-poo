@@ -1,5 +1,8 @@
 <?php
 
+use Tp\tp_centraleish\Entity\Categories;
+use Tp\tp_produit\Entity\Products;
+
 include_once "../src/Utility/utility.php";
 include "./Entity/Categories.php";
 include "./Entity/Products.php";

@@ -1,5 +1,8 @@
 <?php
 
+use Tp\tp_centraleish\Entity\Brands;
+use Tp\tp_centraleish\Entity\Categories;
+
 include_once "Traits/DenominationTrait.php";
 
 class Models

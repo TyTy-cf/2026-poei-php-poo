@@ -1,9 +1,13 @@
 <?php
+
+namespace Tp\tp_centraleish\Entity;
+
 include_once "TraitId.php";
 
 class Listings
 {
     use TraitId;
+
     private Sellers $seller;
     private Models $model;
     private string $title;
@@ -34,40 +38,63 @@ class Listings
         $this->model = $model;
     }
 
-    public function getTitle(): string{
+    public function getTitle(): string
+    {
         return $this->title;
     }
-    public function setTitle(string $title): void{
+
+    public function setTitle(string $title): void
+    {
         $this->title = $title;
     }
-    public function getDescription(): string{
+
+    public function getDescription(): string
+    {
         return $this->description;
     }
-    public function setDescription(string $description): void{
+
+    public function setDescription(string $description): void
+    {
         $this->description = $description;
     }
-    public function getProduce_year(): string{
+
+    public function getProduce_year(): string
+    {
         return $this->produce_year;
     }
-    public function setProduce_year(string $produce_year): void{
+
+    public function setProduce_year(string $produce_year): void
+    {
         $this->produce_year = $produce_year;
     }
-    public function getMileage(): int{
+
+    public function getMileage(): int
+    {
         return $this->mileage;
     }
-    public function setMileage(int $mileage): void{
+
+    public function setMileage(int $mileage): void
+    {
         $this->mileage = $mileage;
     }
-    public function getPrice(): float{
+
+    public function getPrice(): float
+    {
         return $this->price;
     }
-    public function setPrice(float $price): void{
+
+    public function setPrice(float $price): void
+    {
         $this->price = $price;
     }
-    public function getPublish_at(): Datetime{
+
+    public function getPublish_at(): Datetime
+    {
         return $this->publish_at;
     }
-    public function setPublish_at(Datetime $publish_at): void{
+
+    public function setPublish_at(Datetime $publish_at): void
+    {
         $this->publish_at = $publish_at;
     }
 }

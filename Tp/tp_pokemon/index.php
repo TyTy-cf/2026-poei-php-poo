@@ -1,6 +1,8 @@
 <?php
 
-    include_once "../src/Utility/utility.php";
+use Tp\tp_pokemon\Entity\PokemonRepository;
+
+include_once "../src/Utility/utility.php";
     include "./Entity/Pokemons.php";
     include "./Entity/PokemonRepository.php";
 

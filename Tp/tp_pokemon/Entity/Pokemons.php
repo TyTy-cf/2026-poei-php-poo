@@ -1,6 +1,8 @@
 <?php
 
-class Pokemons{
+namespace Tp\tp_pokemon\Entity;
+class Pokemons
+{
     private int $id;
 
     private int $weight;

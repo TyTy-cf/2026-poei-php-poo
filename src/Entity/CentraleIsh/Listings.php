@@ -1,5 +1,8 @@
 <?php
 
+use Tp\tp_centraleish\Entity\Models;
+use Tp\tp_centraleish\Entity\Sellers;
+
 include_once "Traits/DescriptionTrait.php";
 
 class Listings

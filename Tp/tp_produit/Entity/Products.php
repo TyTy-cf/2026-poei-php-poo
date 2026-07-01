@@ -1,5 +1,9 @@
 <?php
 
+namespace Tp\tp_produit\Entity;
+
+use Tp\tp_centraleish\Entity\Categories;
+
 class Products
 {
     private int $id;
@@ -19,22 +23,27 @@ class Products
     {
         return $this->id;
     }
+
     public function setId(int $id): void
     {
         $this->id = $id;
     }
+
     public function getLabel(): string
     {
         return $this->label;
     }
+
     public function setLabel(string $label): void
     {
         $this->label = $label;
     }
+
     public function getDescription(): string
     {
         return $this->description;
     }
+
     public function setDescription(string $description): void
     {
         $this->description = $description;

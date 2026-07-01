@@ -1,11 +1,14 @@
 <?php
 
 
-
-class PokemonRepository {
+namespace Tp\tp_pokemon\Entity;
+class PokemonRepository
+{
 
     private PDO $pdo;
-    public function __construct() {
+
+    public function __construct()
+    {
         $this->pdo = new PDO(
             'mysql:host=mariadb;dbname=db_pokemons;charset=utf8;port=3306',
             'root',
@@ -13,7 +16,8 @@ class PokemonRepository {
         );
     }
 
-    public function FetchAll(){
+    public function FetchAll()
+    {
         $sql = "SELECT * FROM pokemon";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
@@ -21,7 +25,8 @@ class PokemonRepository {
         return $pokemons;
     }
 
-    public function FetchById(int $id){
+    public function FetchById(int $id)
+    {
         $sql = "SELECT * FROM pokemon WHERE id = :id";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
