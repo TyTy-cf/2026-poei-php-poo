@@ -18,6 +18,7 @@ class PokemonRepository
             'root',
             'root'
         );
+        $this->pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     }
 
     /**
@@ -28,6 +29,20 @@ class PokemonRepository
         $sql = "SELECT id, weight, height, base_experience as baseExperience, hp, atk, def, spa, spd, spe, name, slug, id_api as idApi, name_api as nameApi, is_default as isDefault FROM pokemon";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
+        $pokemons = $stmt->fetchAll(PDO::FETCH_CLASS, 'Class\Pokemon');
+        return $pokemons;
+    }
+    /**
+     * @return array<Pokemon>
+     */
+    public function fetchBy(int $offset, int $limit): array
+    {
+        $sql = "SELECT id, weight, height, base_experience as baseExperience, hp, atk, def, spa, spd, spe, name, slug, id_api as idApi, name_api as nameApi, is_default as isDefault FROM pokemon LIMIT :offset, :limit";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            'offset' => $offset,
+            'limit' => $limit
+        ]);
         $pokemons = $stmt->fetchAll(PDO::FETCH_CLASS, 'Class\Pokemon');
         return $pokemons;
     }

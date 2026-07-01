@@ -47,5 +47,35 @@ $pdo = new PDO(
 - `fetchById`: Récupère un `pokemon` en passant son id
 - `deleteById`: Supprime un `pokemon` en passant son id
 
+<br>
+
 - Astuce : `$stmt->fetch(PDO::FETCH_ASSOC);`, il existe une alternative au `PDO::FETCH_ASSOC` qui permet de récupérer des objets
-- Alternative : récupérer le tableau associatif, et instanciez vous-même les objets en sortie...
+- Alternative (peut-être plus intéressante pour pratquer l'objet) : récupérer le tableau associatif, et instanciez vous-même les objets en sortie...
+
+<br>
+- Résultat attendu :
+
+```php
+$repository = new PokemonRepository();
+
+/** @var array<Pokemon> $pokemons */
+$pokemons = $repository->fetchAll();
+
+/** @var Pokemon $pokemon */
+$pokemon = $repository->fetchById(473);
+```
+
+## 4. De la géométrie...
+
+
+- Créer une classe abstraite `AbstractForm`
+- Elle doit avoir aucun attributs !
+- Elle aura une méthode abstraite `getArea` qui renvoie un `float`
+  <br><br>
+- Créer ensuite une classe `Square` avec un attribut `width`
+- Redéfinir la méthode `getArea` pour qu'elle effectue le calcul correct de l'aire d'un Carré
+  <br><br>
+- Créer ensuite une classe `Circle` avec un attribut `radius`
+- Redéfinir la méthode `getArea` pour qu'elle effectue le calcul correct de l'aire d'un Cercle
+  <br><br>
+- Créer ensuite une classe `Rectangle`, je vous laisse choisir un comportement... correct pour celle-ci !
