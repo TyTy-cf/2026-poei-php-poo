@@ -36,6 +36,24 @@ class PokemonRepository
     }
 
     /**
+     * @return array<Pokemon>
+     */
+    public function fetchBy(int $offset, int $limit): array
+    {
+        $sql = "SELECT * FROM pokemon LIMIT $offset, $limit;";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        $assocArray = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $pokemons = [];
+        foreach ($assocArray as $row) {
+            $pokemons[] = $this->createPokemonByAssocArray($row);
+        }
+
+        return $pokemons;
+    }
+
+    /**
      * @return Pokemon
      */
     public function fetchById(int $id): Pokemon
