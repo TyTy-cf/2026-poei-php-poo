@@ -1,16 +1,15 @@
 <?php
 class Square extends AbstractForm
 {
-  private float $length;
+  private float $width;
 
-  public function __construct(float $length)
+  public function __construct(float $width)
   {
-    $this->length = $length;
+    $this->width = $width;
   }
 
   public function getArea(): float
   {
-    return $this->length * $this->length;
+    return $this->width * $this->width;
   }
 }
-?>
