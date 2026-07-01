@@ -18,6 +18,7 @@ include_once "Entity/Geometry/Rectangle.php";
 include_once "Entity/Geometry/Square.php";
 include_once "Entity/Geometry/Circle.php";
 
+include_once "Repository/AbstractRepository.php";
 include_once "Repository/PokemonRepository.php";
 
 ?>

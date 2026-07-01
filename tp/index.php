@@ -81,20 +81,21 @@
     // dump($product);
 
     $repository = new PokemonRepository();
-    $pokemons = $repository->fetchAll();
-    // dump($pokemons);
+    // dump($repository->fetchAll());
+    // dump($repository->fetchBy(0, 151));
+    dump($repository->fetchById(483));
 
     $square = new Square(7.0);
-    dump($square->getArea());
-    dump($square);
+    // dump($square->getArea());
+    // dump($square);
 
     $rectangle = new Rectangle(7.0, 4.0);
-    dump($rectangle->getArea());
-    dump($rectangle);
+    // dump($rectangle->getArea());
+    // dump($rectangle);
 
     $circle = new Circle(5);
-    dump($circle->getArea());
-    dump($circle);
+    // dump($circle->getArea());
+    // dump($circle);
 
 ?>
 

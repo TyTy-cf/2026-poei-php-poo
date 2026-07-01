@@ -1,74 +1,16 @@
 <?php
 
-class PokemonRepository
-{
+class PokemonRepository extends AbstractRepository {
 
-    private PDO $pdo;
-
-    public function __construct()
-    {
-        $this->pdo = new PDO(
-            "mysql:host=mariadb;dbname=db_pokemons;port=3306",
-            "root",
-            "root"
-        );
-    }
-
-    /**
-     * @return array<Pokemon>
-     */
-    public function fetchAll(): array
-    {
-        $sql = "SELECT * FROM pokemon;";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute();
-        $assocArray = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        $pokemons = [];
-        foreach ($assocArray as $row) {
-            $pokemons[] = $this->createPokemonByAssocArray($row);
-        }
-
-        return $pokemons;
-    }
-
-    /**
-     * @return array<Pokemon>
-     */
-    public function fetchBy(int $offset, int $limit): array
-    {
-        $sql = "SELECT * FROM pokemon LIMIT ?, ?;";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->bindValue(1, $offset, PDO::PARAM_INT);
-        $stmt->bindValue(2, $limit, PDO::PARAM_INT);
-        $stmt->execute();
-        $assocArray = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        $pokemons = [];
-        foreach ($assocArray as $row) {
-            $pokemons[] = $this->createPokemonByAssocArray($row);
-        }
-
-        return $pokemons;
-    }
-
-    /**
-     * @return Pokemon
-     */
-    public function fetchById(int $id): Pokemon
-    {
-        $sql = "SELECT * FROM pokemon WHERE id = :id;";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute(["id" => $id]);
-        $assocArray = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $this->createPokemonByAssocArray($assocArray);
+    public function __construct() {
+        parent::__construct("db_pokemons", "pokemon");
     }
 
     /**
      * @param array $array associative array reprensenting a DB row of Pokemon
      * @return Pokemon
      */
-    private function createPokemonByAssocArray(array $array): Pokemon
+    public function createObjectByAssocArray(array $array): Pokemon
     {
         $pokemon = new Pokemon();
         $pokemon->setId((int)$array['id']);
