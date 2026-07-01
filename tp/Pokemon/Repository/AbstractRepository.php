@@ -8,9 +8,11 @@ use PDO;
 abstract class AbstractRepository
 {
     protected PDO $pdo;
-    protected string $table;
+    private string $table;
 
-    public function __construct(string $db, string $table)
+    private string $objectToMap;
+
+    public function __construct(string $db, string $table, string $objectToMap)
     {
         $this->pdo = new PDO(
             "mysql:host=mariadb;dbname=$db;port=3306",
@@ -19,57 +21,102 @@ abstract class AbstractRepository
         );
         $this->pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
         $this->table = $table;
+        $this->objectToMap = $objectToMap;
     }
 
-    /**
-     * @return array<Pokemon>
-     */
     public function fetchAll(): array
     {
-        $sql = "SELECT id, weight, height, base_experience as baseExperience, hp, atk, def, spa, spd, spe, name, slug, id_api as idApi, name_api as nameApi, is_default as isDefault FROM :table";
+        $sql = "SELECT id, weight, height, base_experience as baseExperience, hp, atk, def, spa, spd, spe, name, slug, id_api as idApi, name_api as nameApi, is_default as isDefault FROM $this->table";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([
-            'table' => $this->table
-        ]);
-        $datas = $stmt->fetchAll(PDO::FETCH_CLASS, 'Class\Pokemon');
+        $stmt->execute();
+        $datas = $stmt->fetchAll(PDO::FETCH_CLASS, $this->objectToMap);
         return $datas;
     }
 
     /**
-     * @return array<Pokemon>
+     * @param array $param = ["colToSearch" => "test"]
+     * @param int $limit
+     * @param int $offset
+     * @return array
      */
-    public function fetchBy(int $offset, int $limit): array
+    public function fetchBy(array $param = [], int $limit = PHP_INT_MAX, int $offset = 0): array
     {
-        $sql = "SELECT id, weight, height, base_experience as baseExperience, hp, atk, def, spa, spd, spe, name, slug, id_api as idApi, name_api as nameApi, is_default as isDefault FROM :table LIMIT :offset, :limit";
+        $paramString = $this->fetchArrayToParams($param);
+
+        $sql = "SELECT id, weight, height, base_experience as baseExperience, hp, atk, def, spa, spd, spe, name, slug, id_api as idApi, name_api as nameApi, is_default as isDefault FROM $this->table $paramString LIMIT :offset, :limit";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
-            'table' => $this->table,
             'offset' => $offset,
             'limit' => $limit
         ]);
-        $datas = $stmt->fetchAll(PDO::FETCH_CLASS, 'Class\Pokemon');
+        $datas = $stmt->fetchAll(PDO::FETCH_CLASS, $this->objectToMap);
         return $datas;
     }
 
-    public function fetchById(int $id): Pokemon
+    public function fetchById(int $id): object
     {
-        $sql = "SELECT id, weight, height, base_experience as baseExperience, hp, atk, def, spa, spd, spe, name, slug, id_api as idApi, name_api as nameApi, is_default as isDefault FROM :table WHERE id = :id";
+        $sql = "SELECT id, weight, height, base_experience as baseExperience, hp, atk, def, spa, spd, spe, name, slug, id_api as idApi, name_api as nameApi, is_default as isDefault FROM $this->table WHERE id = :id";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
-            'table' => $this->table,
             'id' => $id
         ]);
-        $data = $stmt->fetchObject('Class\Pokemon');
+        $data = $stmt->fetchObject($this->objectToMap);
         return $data;
     }
 
     public function deleteById(int $id): void
     {
-        $sql = "DELETE FROM :table WHERE id = :id";
+        $sql = "DELETE FROM $this->table WHERE id = :id";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
-            'table' => $this->table,
             'id' => $id
         ]);
+    }
+
+    /**
+     * @param int $id
+     * @param array $param = ["colToModify" => "value"]
+     * @return void
+     */
+    public function updateBy(int $id, array $param): void
+    {
+        $paramString = $this->updateArrayToParam($param);
+        $sql = "UPDATE $this->table SET $paramString WHERE id = :id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            'id' => $id
+        ]);
+    }
+
+    private function fetchArrayToParams(array $param): string
+    {
+        $paramString = '';
+
+        if(count($param)>0) { $paramString .= 'WHERE ';}
+
+        foreach ($param as $key => $value)
+        {
+            if (preg_match('(<|>|=|!=|<>|<=|>=)',$value))
+            {
+                $paramString .= "$key $value AND ";
+            }
+            else {
+                $paramString .= "$key = $value AND ";
+            }
+        }
+
+        return rtrim($paramString, " AND");
+    }
+
+    private function updateArrayToParam(array $param)
+    {
+        $paramString = '';
+
+        foreach ($param as $key => $value)
+        {
+            $paramString .= "$key = $value, ";
+        }
+
+        return rtrim($paramString, ", ");
     }
 }

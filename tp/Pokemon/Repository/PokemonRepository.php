@@ -13,8 +13,33 @@ class PokemonRepository extends AbstractRepository
 
     public function __construct()
     {
-        parent::__construct('db_pokemons', 'pokemon');
+        parent::__construct('db_pokemons', 'pokemon', Pokemon::class);
     }
+
+    /**
+     * @return array<Pokemon>
+     */
+    public function fetchAll(): array
+    {
+        return parent::fetchAll();
+    }
+
+    /**
+     * @param array $param ["colToSearch" => "test"]
+     * @param int $limit
+     * @param int $offset
+     * @return array<Pokemon>
+     */
+    public function fetchBy(array $param = [], int $limit = PHP_INT_MAX, int $offset = 0): array
+    {
+        return parent::fetchBy($param, $limit, $offset);
+    }
+
+    public function fetchById(int $id): Pokemon
+    {
+        return parent::fetchById($id);
+    }
+
 
     public function add(Pokemon $pokemon): void
     {
