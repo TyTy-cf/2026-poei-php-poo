@@ -1,6 +1,7 @@
 <?php
 
 namespace Geometry\Class;
+include_once __DIR__ . '/AbstractShape.php';
 
 class Rectangle extends AbstractShape
 {

@@ -1,6 +1,7 @@
 <?php
 
 namespace Geometry\Class;
+include_once __DIR__ . '/Rectangle.php';
 
 class Square extends Rectangle
 {

@@ -79,3 +79,11 @@ $pokemon = $repository->fetchById(473);
 - Redéfinir la méthode `getArea` pour qu'elle effectue le calcul correct de l'aire d'un Cercle
   <br><br>
 - Créer ensuite une classe `Rectangle`, je vous laisse choisir un comportement... correct pour celle-ci !
+
+
+## 5. L'AbstractRepository
+
+
+- Faire un `fetchAll` revient à faire un `SELECT * FROM :table`
+- C'est similaire à chaque fois, non ?
+- Modifier `AbstractRepository` pour qu'il possède la méthode **complète** pour faire le `fetchAll` correctement en fonction de la table à interroger
