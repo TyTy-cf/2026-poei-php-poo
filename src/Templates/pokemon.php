@@ -14,7 +14,7 @@ if (isset($_GET['offset'])) {
 $limit = $_GET['limit'] ?? 151;
 
 $repository = new PokemonRepository();
-$pokemons = $repository->fetchBy($offset, $limit);
+$pokemons = $repository->fetchAll();
 
 //$pokemons = $repository->fetchById(373);
 //$firstGeneationPokemons = [$pokemons];

@@ -9,27 +9,13 @@ class PokemonRepository extends AbstractRepository
 
     public function __construct()
     {
-        parent::__construct("db_pokemons");
+        parent::__construct("db_pokemons", "pokemon");
+
+
     }
 
 
-    /**
-     * @return array<Pokemon>
-     */
-    public function fetchAll(): array
-    {
-        $sql = "SELECT * FROM pokemon;";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute();
-        $assocArray = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        $pokemons = [];
-        foreach ($assocArray as $row) {
-            $pokemons[] = $this->createObjectByAssocArray($row);
-        }
-
-        return $pokemons;
-    }
 
     /**
      * @return array<Pokemon>
