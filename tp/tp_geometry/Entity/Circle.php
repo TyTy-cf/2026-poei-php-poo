@@ -4,16 +4,9 @@ class Circle extends AbstractForm
 {
     private float $radius;
 
-    public function getRadius(): float
-    {
-        return $this->radius;
-    }
-
-    public function setRadius(float $radius): void
-    {
+    public function __construct(float $radius){
         $this->radius = $radius;
     }
-
 
     public function getArea(): float
     {

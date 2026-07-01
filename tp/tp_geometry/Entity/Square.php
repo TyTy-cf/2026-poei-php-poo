@@ -4,12 +4,7 @@ class Square extends AbstractForm
 {
     private float $width;
 
-    public function getWidth(): float
-    {
-        return $this->width;
-    }
-
-    public function setWidth(float $width): void
+    public function __construct(float $width)
     {
         $this->width = $width;
     }

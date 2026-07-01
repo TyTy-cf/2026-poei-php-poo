@@ -1,6 +1,5 @@
 <?php
 
-namespace Tp\tp_centraleish\Entity;
 trait TraitLabelDescription
 {
     private string $label;

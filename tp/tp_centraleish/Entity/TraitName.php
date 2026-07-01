@@ -1,6 +1,5 @@
 <?php
 
-namespace Tp\tp_centraleish\Entity;
 trait TraitName
 {
     private string $first_name;

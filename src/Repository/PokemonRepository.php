@@ -54,17 +54,6 @@ class PokemonRepository extends AbstractRepository
     /**
      * @return Pokemon
      */
-    public function fetchById(int $offset, int $limit): Pokemon
-    {
-        $sql = "SELECT * FROM pokemon LIMIT :offset, :limit;";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([
-            "offset" => $offset,
-            "limit" => $limit
-        ]);
-        $assocArray = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $this->createObjectByAssocArray($assocArray);
-    }
 
     /**
      * @param array $array associative array reprensenting a DB row of Pokemon

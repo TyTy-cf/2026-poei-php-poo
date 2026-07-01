@@ -1,6 +1,5 @@
 <?php
 
-namespace Tp\tp_centraleish\Entity;
 trait TraitId
 {
     private int $id;

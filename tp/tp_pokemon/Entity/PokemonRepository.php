@@ -1,7 +1,5 @@
 <?php
 
-
-namespace Tp\tp_pokemon\Entity;
 class PokemonRepository
 {
 
