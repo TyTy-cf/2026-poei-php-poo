@@ -9,8 +9,8 @@ class Square extends AbstractForm
         $this->width = $width;
     }
 
-    public function getArea(): float
+    public function getArea(): string
     {
-        return pow($this->width, 2);
+        return "L'aire d'un carré avec des côtés de ".$this->width." est de ".pow($this->width, 2);
     }
 }

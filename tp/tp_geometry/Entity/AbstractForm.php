@@ -2,5 +2,5 @@
 
 abstract class AbstractForm
 {
-    abstract protected function getArea(): float;
+    abstract protected function getArea(): string;
 }

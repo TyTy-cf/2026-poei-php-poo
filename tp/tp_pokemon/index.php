@@ -1,8 +1,7 @@
 <?php
-
-include_once "../src/Utility/utility.php";
-    include "./Entity/Pokemons.php";
-    include "./Entity/PokemonRepository.php";
+//include_once ".../src/Utility/utility.php";
+    include_once "./Entity/Pokemons.php";
+    include_once "../Repository/AbstractRepository.php";
 
 
 //$pokemon = new Pokemons();
@@ -24,11 +23,11 @@ include_once "../src/Utility/utility.php";
 
 //dump($pokemon);
 
-$repository = new PokemonRepository();
+$repository = new Pokemons();
 
 $pokemons = $repository->fetchAll();
 
-$pokemons2 = $repository->fetchById(0,151);
+//$pokemons2 = $repository->fetchById(0,151);
 
 //var_dump($pokemons2);
 

@@ -2,9 +2,9 @@
 
 class Rectangle extends AbstractForm
 {
-    private float $width;
+    protected float $width;
 
-    private float $height;
+    protected float $height;
 
     public function __construct(float $width, float $height)
     {
@@ -12,8 +12,8 @@ class Rectangle extends AbstractForm
         $this->height = $height;
     }
 
-    public function getArea(): float
+    public function getArea(): string
     {
-        return $this->width * $this->height;
+        return "L'aire d'un rectangle de longueur ".$this->width." et de hauteur ".$this->height." est de ".$this->width * $this->height;
     }
 }

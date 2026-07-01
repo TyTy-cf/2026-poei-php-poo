@@ -8,8 +8,8 @@ class Circle extends AbstractForm
         $this->radius = $radius;
     }
 
-    public function getArea(): float
+    public function getArea(): string
     {
-        return pi() * pow($this->radius, 2);
+        return "L'aire d'un cercle de rayon ". $this->radius. " est de " . pi() * pow($this->radius, 2);
     }
 }

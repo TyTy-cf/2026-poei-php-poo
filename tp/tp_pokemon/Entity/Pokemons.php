@@ -1,5 +1,6 @@
 <?php
 
+include_once "../Repository/AbstractRepository.php";
 class Pokemons
 {
     private int $id;
