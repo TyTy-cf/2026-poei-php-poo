@@ -1,7 +1,7 @@
 <?php
 
     include_once "../src/Utility/utility.php";
-//    include "./Entity/Pokemons.php";
+    include "./Entity/Pokemons.php";
     include "./Entity/PokemonRepository.php";
 
 
@@ -28,9 +28,9 @@ $repository = new PokemonRepository();
 
 $pokemons = $repository->fetchAll();
 
-$pokemon2 = $repository->fetchById(473);
+$pokemons2 = $repository->fetchById(0,151);
 
-//var_dump($pokemon2);
+var_dump($pokemons2);
 
 //foreach ($pokemons as $pokemon) {
 //    var_dump($pokemon);
@@ -54,7 +54,7 @@ $pokemon2 = $repository->fetchById(473);
 <body>
 <div class="container">
     <div class="row row-gap-4">
-        <?php foreach ($pokemons as $pokemon) : ?>
+        <?php foreach ($pokemons2 as $pokemon) : ?>
         <div class="col-md-4 d-flex align-items-stretch">
             <div class="card card-body">
                 <h2><?= $pokemon->name; ?></h2>

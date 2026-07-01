@@ -192,4 +192,9 @@ class Pokemons{
     {
         $this->is_default = $is_default;
     }
+
+    function getImage(): string
+    {
+        return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{$this->id_api}.png";
+    }
 }
