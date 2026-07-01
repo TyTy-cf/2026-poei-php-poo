@@ -42,13 +42,15 @@ abstract class AbstractRepository
     public function fetchBy(array $param = [], int $limit = PHP_INT_MAX, int $offset = 0): array
     {
         $paramString = $this->fetchArrayToParams($param);
+        $executeTable = $this->makeExecuteTable($param);
+        $executeTable['offset'] = $offset;
+        $executeTable['limit'] = $limit;
 
         $sql = "SELECT id, weight, height, base_experience as baseExperience, hp, atk, def, spa, spd, spe, name, slug, id_api as idApi, name_api as nameApi, is_default as isDefault FROM $this->table $paramString LIMIT :offset, :limit";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([
-            'offset' => $offset,
-            'limit' => $limit
-        ]);
+        print_r($sql);
+        print_r($executeTable);
+        $stmt->execute($executeTable);
         $datas = $stmt->fetchAll(PDO::FETCH_CLASS, $this->objectToMap);
         return $datas;
     }
@@ -81,11 +83,11 @@ abstract class AbstractRepository
     public function updateBy(int $id, array $param): void
     {
         $paramString = $this->updateArrayToParam($param);
+        $executeTable = $this->makeExecuteTable($param);
+        $executeTable['id'] = $id;
         $sql = "UPDATE $this->table SET $paramString WHERE id = :id";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([
-            'id' => $id
-        ]);
+        $stmt->execute($executeTable);
     }
 
     private function fetchArrayToParams(array $param): string
@@ -96,13 +98,15 @@ abstract class AbstractRepository
 
         foreach ($param as $key => $value)
         {
-            if (preg_match('(<|>|=|!=|<>|<=|>=)',$value))
+            $testCharacter = '';
+            if (preg_match('(<|>|=|!=|<>|<=|>=)',$value, $testCharacter))
             {
-                $paramString .= "$key $value AND ";
+                $testCharacter = $testCharacter[0];
             }
             else {
-                $paramString .= "$key = $value AND ";
+                $testCharacter = "=";
             }
+            $paramString .= "$key $testCharacter :value$key AND ";
         }
 
         return rtrim($paramString, " AND");
@@ -114,9 +118,21 @@ abstract class AbstractRepository
 
         foreach ($param as $key => $value)
         {
-            $paramString .= "$key = $value, ";
+            $paramString .= "$key = :value$key, ";
         }
 
         return rtrim($paramString, ", ");
+    }
+
+    private function makeExecuteTable(array $param)
+    {
+        $table = [];
+
+        foreach ($param as $key => $value)
+        {
+            $table["value$key"] = $value;
+        }
+
+        return $table;
     }
 }
