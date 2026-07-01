@@ -1,3 +1,9 @@
+<?php
+
+include "../include.php";
+
+?>
+
 <html lang="fr" data-bs-theme="dark">
 
 <head>
