@@ -64,3 +64,18 @@ $pokemons = $repository->fetchAll();
 /** @var Pokemon $pokemon */
 $pokemon = $repository->fetchById(473);
 ```
+
+## 4. De la géométrie...
+
+
+- Créer une classe abstraite `AbstractForm`
+- Elle doit avoir aucun attributs !
+- Elle aura une méthode abstraite `getArea` qui renvoie un `float`
+<br><br>
+- Créer ensuite une classe `Square` avec un attribut `width`
+- Redéfinir la méthode `getArea` pour qu'elle effectue le calcul correct de l'aire d'un Carré
+<br><br>
+- Créer ensuite une classe `Circle` avec un attribut `radius`
+- Redéfinir la méthode `getArea` pour qu'elle effectue le calcul correct de l'aire d'un Cercle
+  <br><br>
+- Créer ensuite une classe `Rectangle`, je vous laisse choisir un comportement... correct pour celle-ci !

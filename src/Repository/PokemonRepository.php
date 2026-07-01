@@ -2,20 +2,16 @@
 
 include_once "../Utility/utility.php";
 include_once "../Entity/Pokemons/Pokemons.php";
+include_once "AbstractRepository.php";
 
-class PokemonRepository
+class PokemonRepository extends AbstractRepository
 {
-
-    private PDO $pdo;
 
     public function __construct()
     {
-        $this->pdo = new PDO(
-            "mysql:host=mariadb;dbname=db_pokemons;port=3306",
-            "root",
-            "root"
-        );
+        parent::__construct("db_pokemons");
     }
+
 
     /**
      * @return array<Pokemon>
@@ -29,7 +25,7 @@ class PokemonRepository
 
         $pokemons = [];
         foreach ($assocArray as $row) {
-            $pokemons[] = $this->createPokemonByAssocArray($row);
+            $pokemons[] = $this->createObjectByAssocArray($row);
         }
 
         return $pokemons;
@@ -49,7 +45,7 @@ class PokemonRepository
 
         $pokemons = [];
         foreach ($assocArray as $row) {
-            $pokemons[] = $this->createPokemonByAssocArray($row);
+            $pokemons[] = $this->createObjectByAssocArray($row);
         }
 
         return $pokemons;
@@ -64,14 +60,14 @@ class PokemonRepository
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute(["id" => $id]);
         $assocArray = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $this->createPokemonByAssocArray($assocArray);
+        return $this->createObjectByAssocArray($assocArray);
     }
 
     /**
      * @param array $array associative array reprensenting a DB row of Pokemon
      * @return Pokemon
      */
-    private function createPokemonByAssocArray(array $array): Pokemon
+    protected function createObjectByAssocArray(array $array): object
     {
         $pokemon = new Pokemon();
         $pokemon->setId((int)$array['id']);
