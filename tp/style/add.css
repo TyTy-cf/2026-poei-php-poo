@@ -1,0 +1,116 @@
+.add-page {
+    min-height: calc(100vh - 3rem);
+    display: grid;
+    place-items: center;
+}
+
+.add-card {
+    width: min(100%, 860px);
+    padding: clamp(1.25rem, 3vw, 2.25rem);
+    border: 1px solid var(--border-gold);
+    border-radius: 28px;
+    background:
+        radial-gradient(circle at top right, rgba(252, 163, 17, 0.16), transparent 18rem),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 42%),
+        var(--surface);
+    box-shadow: 0 26px 80px rgba(0, 0, 0, 0.38);
+}
+
+.add-header {
+    max-width: 620px;
+    margin: 0 auto 2rem;
+    text-align: center;
+}
+
+.add-header h1 {
+    margin: 0;
+    color: var(--text-color);
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    line-height: 1;
+}
+
+.add-intro {
+    margin: 0.85rem 0 0;
+    color: var(--muted-text);
+}
+
+.form-error {
+    width: min(100%, 620px);
+    margin: 0 auto 1.25rem;
+    padding: 0.9rem 1rem;
+    border: 1px solid rgba(194, 65, 53, 0.45);
+    border-radius: 16px;
+    background: rgba(194, 65, 53, 0.16);
+    color: #ffd6d1;
+    text-align: center;
+    font-weight: 700;
+}
+
+.add-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 1.1rem;
+}
+
+.form-field {
+    display: grid;
+    gap: 0.45rem;
+}
+
+.form-field-wide,
+.form-actions {
+    grid-column: 1 / -1;
+}
+
+.form-field label {
+    color: var(--muted-text);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.add-form input {
+    width: 100%;
+    min-height: 3.35rem;
+    padding: 0 1rem;
+    border: 1px solid rgba(209, 151, 53, 0.45);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.94);
+    color: #111;
+    text-align: left;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.add-form input:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 4px rgba(209, 151, 53, 0.18);
+    transform: translateY(-1px);
+}
+
+.add-form input::placeholder {
+    color: rgba(17, 17, 17, 0.48);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.4rem;
+}
+
+.add-form .btn {
+    min-width: 11rem;
+    margin: 0;
+}
+
+@media (max-width: 720px) {
+    .add-card {
+        border-radius: 22px;
+    }
+
+    .add-form {
+        grid-template-columns: 1fr;
+    }
+}

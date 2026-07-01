@@ -1,24 +1,40 @@
 <?php
 
+include_once __DIR__ . "/Repository/PokemonRepository.php";
+
 include __DIR__ . "/components/header.php";
-include_once __DIR__ . "/PokemonEntity/PokemonRepository.php";
 
-use POkemonEntity\PokemonRepository;
 
-$repository= new PokemonRepository();
 
-$repository->setPdo($pdo);
+$repository = new Repository\PokemonRepository();
+
+
 
 $pokemons = $repository->fetchAll();
-
-dump($pokemons[0]);
-
 $pokemon = $repository->fetchById(473);
-dump($pokemon);
+
+$fields = [
+        'atk' => 150,
+		'def'=> 120
+];
+
+$pokemons = $repository->fetchBy($fields,0,151);
+//dump($pokemons);
+
 
 
 ?>
+<div class="container">
+	<div class="content">
 
+        <?php foreach ($pokemons as $pokemon) : ?>
+
+            <?php include __DIR__ . "/components/card.php"; ?>
+
+        <?php endforeach; ?>
+	</div>
+
+</div>
 
 <?php
 include __DIR__ . "/components/footer.php";
@@ -30,4 +46,5 @@ include __DIR__ . "/components/footer.php";
     print_r($data);
     echo '</pre>';
 }
+
 ?>

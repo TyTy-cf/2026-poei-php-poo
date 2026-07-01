@@ -1,5 +1,6 @@
 <?php
 
+namespace PokemonEntity;
 class Pokemon
 {
 
