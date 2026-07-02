@@ -70,6 +70,65 @@ abstract class AbstractRepository
         return $this->createObjectByAssocArray($assocArray);
     }
 
+    public function updateById(int $id, array $contents): object|null
+    {
+        $params = [];
+        $strQuery = "UPDATE {$this->table} SET ";
+        foreach ($contents as $key => $value) {
+            $strQuery .= "{$key} = :{$key},";
+            $params[":{$key}"] = $value;
+        }
+        $strQuery = rtrim($strQuery, ",");
+        $strQuery .= " WHERE id = {$id}";
+
+        $query = $this->pdo->prepare($strQuery);
+        foreach ($params as $key => $value) {
+            $query->bindValue($key, $value);
+        }
+
+        if (true === $query->execute()) {
+            return $this->fetchById($id);
+        }
+
+        return null;
+    }
+
+    public function create(array $contents): object|null
+    {
+        $params = [];
+        $strQuery = "INSERT INTO {$this->table} VALUES (null, ";
+        foreach ($contents as $key => $value) {
+            $strQuery .= ":{$key},";
+            $params[":{$key}"] = $value;
+        }
+        $strQuery = rtrim($strQuery, ",");
+        $strQuery .= ")";
+
+        $query = $this->pdo->prepare($strQuery);
+        foreach ($params as $key => $value) {
+            $query->bindValue($key, $value);
+        }
+
+        if (true === $query->execute()) {
+            $lastId = $this->pdo->lastInsertId();
+
+            if ($lastId !== false) {
+                return $this->fetchById($lastId);
+            }
+
+            return null;
+        }
+
+        return null;
+    }
+
+    public function deleteById(int $id): bool
+    {
+        $sql = "DELETE FROM $this->table WHERE id = :id;";
+        $stmt = $this->pdo->prepare($sql);
+        return $stmt->execute(["id" => $id]);
+    }
+
     abstract protected function createObjectByAssocArray(array $array): object;
 
 }
