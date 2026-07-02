@@ -20,10 +20,11 @@ if ($httpMethod !== "POST") {
 
 
 if (isset($_POST['name'])) {
+    echo "coucou";
     // Ajout en BDD
     $repository = new PokemonRepository();
     // j'ai besoin d'un array
-    $pokemon = $repository->create(getBody());
+    $pokemon = $repository->create($_POST[getBody()]);
 
     header('Content-Type: application/json; charset=utf-8', false, 200);
 
