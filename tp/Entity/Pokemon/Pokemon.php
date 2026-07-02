@@ -1,6 +1,6 @@
 <?php
 
-class Pokemon
+class Pokemon implements JsonSerializable
 {
     private ?int $id;
     private int $weight;
@@ -171,5 +171,10 @@ class Pokemon
     function getImage(): string
     {
         return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{$this->idApi}.png";
+    }
+
+    public function jsonSerialize(): array
+    {
+        return get_object_vars($this);
     }
 }
