@@ -1,15 +1,6 @@
 <?php
 
-    include_once "./Utility/utility.php";
-    include_once "./Entity/CentraleIsh/Brands.php";
-    include_once "./Entity/CentraleIsh/Models.php";
-    include_once "./Entity/CentraleIsh/Categories.php";
-    include_once "./Entity/CentraleIsh/Listings.php";
-    include_once "./Entity/CentraleIsh/Sellers.php";
-
-    include_once "./Entity/Ventes/Category.php";
-    include_once "./Entity/Ventes/Product.php";
-    include_once "./Entity/Ventes/Characteristic.php";
+    include "include.php";
 
     // parent niveau 0
     $book = new Category();

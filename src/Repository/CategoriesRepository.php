@@ -3,17 +3,17 @@
 include_once "../Entity/CentraleIsh/Brands.php";
 include_once "AbstractRepository.php";
 
-class BrandsRepository extends AbstractRepository
+class CategoriesRepository extends AbstractRepository
 {
 
     public function __construct()
     {
-        parent::__construct("db_auto-vente", "brands");
+        parent::__construct("db_auto-vente", "categories");
     }
 
     protected function createObjectByAssocArray(array $array): object
     {
-        $brand = new Brands();
+        $brand = new Categories();
         $brand->setId($array['id']);
         $brand->setLabel($array['label']);
         $brand->setDescription($array['description']);
