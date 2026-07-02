@@ -1,8 +1,8 @@
 <?php
 use Pokemon\Repository\{PokemonRepository};
 
-include_once __DIR__ . '/../Repository/PokemonRepository.php';
-include_once __DIR__ . "/../../../src/Utility/utility.php";
+include_once __DIR__ . '/../../Repository/PokemonRepository.php';
+include_once __DIR__ . "/../../../../src/Utility/utility.php";
 
 // GET http://localhost:8000/api/pokemon => fetchAll
 // GET http://localhost:8000/src/API/get_pokemon.php => fetchAll

@@ -66,11 +66,11 @@ abstract class AbstractRepository
         return $this->mapToObject($data);
     }
 
-    public function deleteById(int $id): void
+    public function deleteById(int $id): bool
     {
         $sql = "DELETE FROM $this->table WHERE id = :id";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([
+        return $stmt->execute([
             'id' => $id
         ]);
     }
