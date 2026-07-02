@@ -1,21 +1,21 @@
 <?php
 
-use Tp\tp_centraleish\Entity\Brands;
-use Tp\tp_centraleish\Entity\Categories;
-use Tp\tp_centraleish\Entity\Listings;
-use Tp\tp_centraleish\Entity\Models;
-use Tp\tp_centraleish\Entity\Sellers;
+use Entity\CentraleIsh\Brands;
+use Entity\CentraleIsh\Categories;
+use Entity\CentraleIsh\Listings;
+use Entity\CentraleIsh\Models;
+use Entity\CentraleIsh\Sellers;
 
-include_once "./Utility/utility.php";
-    include_once "./Entity/CentraleIsh/Brands.php";
-    include_once "./Entity/CentraleIsh/Models.php";
-    include_once "./Entity/CentraleIsh/Categories.php";
-    include_once "./Entity/CentraleIsh/Listings.php";
-    include_once "./Entity/CentraleIsh/Sellers.php";
+include_once "Utility/utility.php";
+    include_once "Entity/CentraleIsh/Brands.php";
+    include_once "Entity/CentraleIsh/Models.php";
+    include_once "Entity/CentraleIsh/Categories.php";
+    include_once "Entity/CentraleIsh/Listings.php";
+    include_once "Entity/CentraleIsh/Sellers.php";
 
-    include_once "./Entity/Ventes/Category.php";
-    include_once "./Entity/Ventes/Product.php";
-    include_once "./Entity/Ventes/Characteristic.php";
+    include_once "Entity/Ventes/Category.php";
+    include_once "Entity/Ventes/Product.php";
+    include_once "Entity/Ventes/Characteristic.php";
 
     // parent niveau 0
     $book = new Category();

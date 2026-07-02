@@ -1,5 +1,5 @@
 <?php
-//include_once ".../src/Utility/utility.php";
+//include_once "/./././src/Utility/utility.php";
     include_once "./Entity/Pokemons.php";
     include_once "../Repository/AbstractRepository.php";
 

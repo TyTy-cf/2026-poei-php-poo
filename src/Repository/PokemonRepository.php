@@ -1,7 +1,7 @@
 <?php
 
-include_once "../Utility/utility.php";
-include_once "../Entity/Pokemons/Pokemons.php";
+include_once "./Utility/utility.php";
+include_once "./Entity/Pokemons/Pokemons.php";
 include_once "AbstractRepository.php";
 
 class PokemonRepository extends AbstractRepository
