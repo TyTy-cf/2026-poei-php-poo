@@ -45,6 +45,17 @@ abstract class AbstractRepository
     return $stmt->fetchAll(PDO::FETCH_CLASS, $this->tableName);
   }
 
+  public function create(array $data): mixed
+  {
+    $fields = implode(", ", array_keys($data));
+    $placeholders = ":" . implode(", :", array_keys($data));
+
+    $sql = "INSERT INTO " . strtolower($this->tableName) . " ($fields) VALUES ($placeholders);";
+    $stmt = $this->pdo->prepare($sql);
+    return $sql;
+    // $stmt->execute($data);
+  }
+
   public function findBy(array $fields, int $offset, int $limit): array
   {
     $bindvalues = [];
