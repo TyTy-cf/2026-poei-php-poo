@@ -95,6 +95,6 @@ class PokemonRepository extends AbstractRepository
      */
     protected function assocArrayToObjectArray(array $assocArray): array
     {
-        parent::assocArrayToObjectArray($assocArray);
+        return parent::assocArrayToObjectArray($assocArray);
     }
 }
