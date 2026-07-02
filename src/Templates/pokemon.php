@@ -1,10 +1,6 @@
 <?php
 
-use Tp\tp_pokemon\Entity\PokemonRepository;
-
-include_once "../Entity/Pokemons/Pokemons.php";
 include_once "header.php";
-include_once "../Repository/PokemonRepository.php";
 
 // ?offset=151&limit=100
 
@@ -15,8 +11,16 @@ if (isset($_GET['offset'])) {
 
 $limit = $_GET['limit'] ?? 151;
 
+$params = [];
+$filterKey = ['hp', 'atk', 'def', 'spa', 'spd', 'spe', 'weight', 'height', 'name'];
+foreach ($filterKey as $key) {
+    if (isset($_GET[$key])) {
+        $params[$key] = $_GET[$key];
+    }
+}
+
 $repository = new PokemonRepository();
-$pokemons = $repository->fetchBy($offset, $limit);
+$pokemons = $repository->fetchBy($params, $offset, $limit);
 
 //$pokemons = $repository->fetchById(373);
 //$firstGeneationPokemons = [$pokemons];
@@ -40,3 +44,4 @@ $pokemons = $repository->fetchBy($offset, $limit);
 
 <?php
 include_once __DIR__ . "/footer.php"; ?>
+

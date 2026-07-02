@@ -1,7 +1,7 @@
 <?php
 
-include_once "./Utility/utility.php";
-include_once "./Entity/Pokemons/Pokemons.php";
+include_once "../Utility/utility.php";
+include_once "../Entity/Pokemons/Pokemons.php";
 include_once "AbstractRepository.php";
 
 class PokemonRepository extends AbstractRepository
@@ -9,61 +9,7 @@ class PokemonRepository extends AbstractRepository
 
     public function __construct()
     {
-        parent::__construct("db_pokemons");
-    }
-
-
-    /**
-     * @return array<Pokemon>
-     */
-    public function fetchAll(): array
-    {
-        $sql = "SELECT * FROM pokemon;";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute();
-        $assocArray = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        $pokemons = [];
-        foreach ($assocArray as $row) {
-            $pokemons[] = $this->createObjectByAssocArray($row);
-        }
-
-        return $pokemons;
-    }
-
-    /**
-     * @return array<Pokemon>
-     */
-    public function fetchBy(int $offset, int $limit): array
-    {
-        $sql = "SELECT * FROM pokemon LIMIT ?, ?;";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->bindValue(1, $offset, PDO::PARAM_INT);
-        $stmt->bindValue(2, $limit, PDO::PARAM_INT);
-        $stmt->execute();
-        $assocArray = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        $pokemons = [];
-        foreach ($assocArray as $row) {
-            $pokemons[] = $this->createObjectByAssocArray($row);
-        }
-
-        return $pokemons;
-    }
-
-    /**
-     * @return Pokemon
-     */
-    public function fetchById(int $offset, int $limit): Pokemon
-    {
-        $sql = "SELECT * FROM pokemon LIMIT :offset, :limit;";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([
-            "offset" => $offset,
-            "limit" => $limit
-        ]);
-        $assocArray = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $this->createObjectByAssocArray($assocArray);
+        parent::__construct("db_pokemons", "pokemon");
     }
 
     /**
@@ -90,4 +36,5 @@ class PokemonRepository extends AbstractRepository
         $pokemon->setIsDefault((bool)$array['is_default']);
         return $pokemon;
     }
+
 }
