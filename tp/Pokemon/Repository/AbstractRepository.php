@@ -90,20 +90,41 @@ abstract class AbstractRepository
         $stmt->execute($executeTable);
     }
 
+    public function create(array $array): object|null
+    {
+        $array['id'] = null;
+        $paramArray = $this->createArrayToParam($array);
+
+        $sql = "INSERT INTO pokemon(" . $paramArray['columns'] . ") VALUES (" . $paramArray['values'] . ")";
+        echo $sql;
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($paramArray['executeTable']);
+
+        if (true === $stmt->execute($paramArray['executeTable'])) {
+            $lastId = $this->pdo->lastInsertId();
+
+            if ($lastId !== false) {
+                return $this->fetchById($lastId);
+            }
+
+            return null;
+        }
+        return null;
+    }
+
     private function fetchArrayToParams(array $param): string
     {
         $paramString = '';
 
-        if(count($param)>0) { $paramString .= 'WHERE ';}
+        if (count($param) > 0) {
+            $paramString .= 'WHERE ';
+        }
 
-        foreach ($param as $key => $value)
-        {
+        foreach ($param as $key => $value) {
             $testCharacter = '';
-            if (preg_match('(<|>|=|!=|<>|<=|>=)',$value, $testCharacter))
-            {
+            if (preg_match('(<|>|=|!=|<>|<=|>=)', $value, $testCharacter)) {
                 $testCharacter = $testCharacter[0];
-            }
-            else {
+            } else {
                 $testCharacter = "=";
             }
             $paramString .= "$key $testCharacter :value$key AND ";
@@ -116,20 +137,38 @@ abstract class AbstractRepository
     {
         $paramString = '';
 
-        foreach ($param as $key => $value)
-        {
+        foreach ($param as $key => $value) {
             $paramString .= "$key = :value$key, ";
         }
 
         return rtrim($paramString, ", ");
     }
 
+    private function createArrayToParam(array $param): array
+    {
+        $paramArray = [];
+        $paramArray["columns"] = '';
+        $paramArray["values"] = '';
+        $paramArray["executeTable"] = [];
+
+        foreach ($param as $key => $value) {
+            $key = strtolower(preg_replace('/(?<!^)[A-Z]/', '_$0', $key));
+
+            $paramArray["columns"] .= "$key, ";
+            $paramArray["values"] .= ":$key, ";
+            $paramArray["executeTable"][$key] = $value;
+        }
+        $paramArray["columns"] = rtrim($paramArray["columns"], ", ");
+        $paramArray["values"] = rtrim($paramArray["values"], ", ");
+
+        return $paramArray;
+    }
+
     private function makeExecuteTable(array $param): array
     {
         $table = [];
 
-        foreach ($param as $key => $value)
-        {
+        foreach ($param as $key => $value) {
             $table["value$key"] = $value;
         }
 

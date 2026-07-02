@@ -87,3 +87,35 @@ $pokemon = $repository->fetchById(473);
 - Faire un `fetchAll` revient à faire un `SELECT * FROM :table`
 - C'est similaire à chaque fois, non ?
 - Modifier `AbstractRepository` pour qu'il possède la méthode **complète** pour faire le `fetchAll` correctement en fonction de la table à interroger
+
+
+## 6. API
+
+### 6.1. Faire le `get_pokemon_id.php`
+
+- retourne un objet Pokémon par l'ID en QueryParam
+
+### 6.2. Faire le `post_pokemon.php`
+
+- Créer un pokémon
+- Exemple de JSON à passer dans le body :
+````json
+{
+  "weight": 69,
+  "height": 7,
+  "baseExperience": 64,
+  "hp": 45,
+  "atk": 49,
+  "def": 49,
+  "spa": 65,
+  "spd": 65,
+  "spe": 45,
+  "name": "Bulbasaur",
+  "slug": "bulbasaur",
+  "idApi": "1",
+  "nameApi": "bulbasaur",
+  "isDefault": true
+}
+````
+
+

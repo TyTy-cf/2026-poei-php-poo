@@ -2,7 +2,9 @@
 
 namespace Class;
 
-class Pokemon
+use JsonSerializable;
+
+class Pokemon implements JsonSerializable
 {
     private ?int $id;
     private int $weight;
@@ -170,4 +172,10 @@ class Pokemon
         $this->isDefault = $isDefault;
     }
 
+    public function jsonSerialize(): array
+    {
+        $serialized = get_object_vars($this);
+
+        return $serialized;
+    }
 }

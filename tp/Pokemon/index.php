@@ -11,6 +11,10 @@ $pokemonRep->updateBy(1118, ['hp' => 69, 'spe' => 67]);
 
 dump($pokemon = $pokemonRep->fetchBy(['weight' => 69, 'height' => 7], 151));
 
+//$pokemon[1]->setName('Jcrois on est sur un autre pokefion');
+//
+//$pokemonRep->create($pokemon[1]);
+
 //$pokemon->setName("Yvo");
 //$pokemon->setAtk(100000000);
 //
