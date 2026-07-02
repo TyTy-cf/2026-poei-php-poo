@@ -62,4 +62,39 @@ class PokemonRepository extends AbstractRepository
             'is_default' => $pokemon->getIsDefault()
         ]);
     }
+
+    /**
+     * @param array $assocArray
+     * @return Pokemon
+     */
+    protected function mapToObject(array $assocArray): Pokemon
+    {
+        $pokemon = new Pokemon();
+
+        $pokemon->setWeight($assocArray['weight']);
+        $pokemon->setHeight($assocArray['height']);
+        $pokemon->setBaseExperience($assocArray['base_experience']);
+        $pokemon->setHp($assocArray['hp']);
+        $pokemon->setAtk($assocArray['atk']);
+        $pokemon->setDef($assocArray['def']);
+        $pokemon->setSpa($assocArray['spa']);
+        $pokemon->setSpd($assocArray['spd']);
+        $pokemon->setSpe($assocArray['spe']);
+        $pokemon->setName($assocArray['name']);
+        $pokemon->setSlug($assocArray['slug']);
+        $pokemon->setIdApi($assocArray['id_api']);
+        $pokemon->setNameApi($assocArray['name_api']);
+        $pokemon->setIsDefault($assocArray['is_default']);
+
+        return $pokemon;
+    }
+
+    /**
+     * @param array $assocArray
+     * @return array<Pokemon>
+     */
+    protected function assocArrayToObjectArray(array $assocArray): array
+    {
+        parent::assocArrayToObjectArray($assocArray);
+    }
 }

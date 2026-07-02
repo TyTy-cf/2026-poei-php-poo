@@ -26,11 +26,11 @@ abstract class AbstractRepository
 
     public function fetchAll(): array
     {
-        $sql = "SELECT id, weight, height, base_experience as baseExperience, hp, atk, def, spa, spd, spe, name, slug, id_api as idApi, name_api as nameApi, is_default as isDefault FROM $this->table";
+        $sql = "SELECT * FROM $this->table";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
-        $datas = $stmt->fetchAll(PDO::FETCH_CLASS, $this->objectToMap);
-        return $datas;
+        $datas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $this->assocArrayToObjectArray($datas);
     }
 
     /**
@@ -46,24 +46,24 @@ abstract class AbstractRepository
         $executeTable['offset'] = $offset;
         $executeTable['limit'] = $limit;
 
-        $sql = "SELECT id, weight, height, base_experience as baseExperience, hp, atk, def, spa, spd, spe, name, slug, id_api as idApi, name_api as nameApi, is_default as isDefault FROM $this->table $paramString LIMIT :offset, :limit";
+        $sql = "SELECT * FROM $this->table $paramString LIMIT :offset, :limit";
         $stmt = $this->pdo->prepare($sql);
         print_r($sql);
         print_r($executeTable);
         $stmt->execute($executeTable);
-        $datas = $stmt->fetchAll(PDO::FETCH_CLASS, $this->objectToMap);
-        return $datas;
+        $datas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $this->assocArrayToObjectArray($datas);
     }
 
     public function fetchById(int $id): object
     {
-        $sql = "SELECT id, weight, height, base_experience as baseExperience, hp, atk, def, spa, spd, spe, name, slug, id_api as idApi, name_api as nameApi, is_default as isDefault FROM $this->table WHERE id = :id";
+        $sql = "SELECT * FROM $this->table WHERE id = :id";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
             'id' => $id
         ]);
-        $data = $stmt->fetchObject($this->objectToMap);
-        return $data;
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $this->mapToObject($data);
     }
 
     public function deleteById(int $id): void
@@ -112,7 +112,7 @@ abstract class AbstractRepository
         return rtrim($paramString, " AND");
     }
 
-    private function updateArrayToParam(array $param)
+    private function updateArrayToParam(array $param): string
     {
         $paramString = '';
 
@@ -124,7 +124,7 @@ abstract class AbstractRepository
         return rtrim($paramString, ", ");
     }
 
-    private function makeExecuteTable(array $param)
+    private function makeExecuteTable(array $param): array
     {
         $table = [];
 
@@ -134,5 +134,17 @@ abstract class AbstractRepository
         }
 
         return $table;
+    }
+
+    abstract protected function mapToObject(array $assocArray): object;
+
+    protected function assocArrayToObjectArray(array $assocArray): array
+    {
+        $objectArray = [];
+
+        foreach ($assocArray as $item) {
+            $objectArray[] = $this->mapToObject($item);
+        }
+        return $objectArray;
     }
 }
