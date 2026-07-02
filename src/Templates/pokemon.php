@@ -44,3 +44,4 @@ $pokemons = $repository->fetchBy($params, $offset, $limit);
 
 <?php
 include_once __DIR__ . "/footer.php"; ?>
+
