@@ -1,7 +1,7 @@
 <?php
 
 // GET http://localhost:8000/api/pokemon/5 => fetchById
-// GET http://localhost:8000/src/API/get_pokemon.php?id=5 => fetchById
+// GET http://localhost:8000/src/API/pokemon/get_id?id=5 => fetchById
 
 if (isset($_GET['id'])) {
     // Via PokemonRepository faire le fetchById
