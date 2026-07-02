@@ -1,7 +1,7 @@
 <?php
 
 include_once "../Entity/CentraleIsh/Brands.php";
-include_once "AbstractRepository.php";
+include_once "AbstractRepository2.php";
 
 class CategoriesRepository extends AbstractRepository
 {
